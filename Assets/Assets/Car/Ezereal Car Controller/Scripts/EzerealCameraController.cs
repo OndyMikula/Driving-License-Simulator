@@ -11,7 +11,7 @@ namespace Ezereal
 
         private void Awake()
         {
-            SetCameraView(CameraViews.close);
+            SetCameraView(CameraViews.cockpit);
         }
 
         void OnSwitchCamera()

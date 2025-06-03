@@ -19,16 +19,21 @@ public class PlayerController : MonoBehaviour
     //           budes sbirat zdenda coiny
     //           bude schovanej giga obrazek zdendy co kdyz ho najdes tak te bude honit pres celou mapu a furt se ti bude smat a rikat KAPR S NIVOU
     //           bude tam skrytej easter egg s kaprem a zdendou
+    //           po narazu do baraku bude prehranej zvuk BYEBYE
+
+    GameObject player; // reference na auto, ktere ovladame
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         
     }
 }

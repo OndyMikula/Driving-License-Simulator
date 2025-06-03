@@ -1,4 +1,0 @@
-repository "Driving License Simulator/Driving License Simulator@7972351947414@cloud"
-  path "/"
-    br "/main"
-    co "/main"
