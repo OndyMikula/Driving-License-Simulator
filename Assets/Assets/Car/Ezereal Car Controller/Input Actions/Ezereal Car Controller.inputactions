@@ -60,6 +60,24 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "DownShift",
+                    "type": "Button",
+                    "id": "e943e1de-0f0a-4958-8cc3-0a2cf49e29a1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UpShift",
+                    "type": "Button",
+                    "id": "fa46a2f6-e305-4af2-beb3-1fde607bfdb2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "LeftTurnSignal",
                     "type": "Button",
                     "id": "aafa7720-7c36-4ace-9339-720230003692",
@@ -203,6 +221,17 @@
                 },
                 {
                     "name": "",
+                    "id": "60ab877d-ff46-4396-bc37-0c969e225fdc",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4c074dbb-4d7c-402b-b013-fe368701931b",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -226,7 +255,18 @@
                 {
                     "name": "",
                     "id": "99b890fc-de48-4617-a0f1-8ecbe1ccf788",
-                    "path": "<Keyboard>/b",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d60a8d16-ef55-438c-affb-01c93b04af04",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -286,6 +326,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Handbrake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5257b0ec-14f2-45ec-8972-18609840361f",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "977ffad9-e93e-4ca4-a248-341478242844",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ef150ded-e68b-4add-8bdc-4a71b00b364a",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f172098-9fec-4632-91f5-fa017498f970",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpShift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -453,39 +537,6 @@
                     "action": "StartCar",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "WS",
-                    "id": "98f475fb-e8df-4a39-b7ff-456709dc805a",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Accelerate",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "716a8958-3e61-486f-a36c-2553228de018",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Accelerate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "3a5642b4-458e-4c60-a1a2-3e7126f19933",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Accelerate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }
