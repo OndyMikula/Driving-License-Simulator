@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Car
+  - Checkpointy
   layers:
   - Default
   - TransparentFX
