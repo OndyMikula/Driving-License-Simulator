@@ -21,19 +21,24 @@ public class PlayerController : MonoBehaviour
     //           bude tam skrytej easter egg s kaprem a zdendou
     //           po narazu do baraku bude prehranej zvuk BYEBYE
 
-    GameObject player; // reference na auto, ktere ovladame
+    GameObject player;
+
+    GameObject Canvas_Fail;
+    GameObject Canvas_Success;
 
     // Start is called before the first frame update
     void Start()
     {
+        Canvas_Fail = GameObject.Find("Canvas_Fail");
+        Canvas_Success = GameObject.Find("Canvas_Success");
 
+        Canvas_Fail.SetActive(false);
+        Canvas_Success.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
 
-        
     }
 }
