@@ -24,7 +24,10 @@ public class GameController : MonoBehaviour
 
     GameObject player;
     [SerializeField] GameObject[] DrivingLine;
+    [SerializeField] GameObject[] Checkpoint;
+    float activationDistance = 3; // Vzdálenost pro aktivaci checkpointu
 
+    GameObject Canvas_Checkpoint;
     GameObject Canvas_Fail;
     GameObject Canvas_Success;
 
@@ -33,11 +36,20 @@ public class GameController : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
 
+        Canvas_Checkpoint = GameObject.Find("Canvas_Checkpoint");
         Canvas_Fail = GameObject.Find("Canvas_Fail");
         Canvas_Success = GameObject.Find("Canvas_Success");
 
+        if (Canvas_Success != null)
+            Canvas_Success.SetActive(false);
+        if (Canvas_Checkpoint != null)
+            Canvas_Checkpoint.SetActive(true);
+        if (Canvas_Fail != null)
+            Canvas_Fail.SetActive(false);
+
+        /*Canvas_Checkpoint.SetActive(false);
         Canvas_Fail.SetActive(false);
-        Canvas_Success.SetActive(false);
+        Canvas_Success.SetActive(false);*/
     }
 
     // Update is called once per frame
@@ -46,33 +58,47 @@ public class GameController : MonoBehaviour
         /*if (CarController.currentSpeed >= 6)
             Canvas_Fail.SetActive(true);*/
 
-        if (Canvas_Fail == null || DrivingLine == null || DrivingLine.Length == 0)
-            return;
-
         foreach (var line in DrivingLine)
         {
-            var col = line.GetComponent<BoxCollider>();
+            var collider = line.GetComponent<BoxCollider>();
 
             // Získání upravených hranic s bezpečnostní mezí
-            Bounds bounds = new Bounds(col.bounds.center, col.bounds.size + Vector3.one * 0.1f);
+            Bounds bounds = new Bounds(collider.bounds.center, collider.bounds.size + Vector3.one * 0.1f);
 
             // Přesná detekce s vizualizací
             if (bounds.Contains(transform.position))
             {
-                if (!Canvas_Fail.activeSelf)
-                {
-                    Canvas_Fail.SetActive(true);
-                }
+                Canvas_Fail.SetActive(true);
             }
         }
 
-        /*if (DrivingLine != null && Canvas_Fail != null)
+        for (int i = 0; i < Checkpoint.Length; )
         {
-            float distance = Vector3.Distance(transform.position, DrivingLine.transform.position);
+            float distance = Vector3.Distance(transform.position, Checkpoint[i].transform.position);
             if (distance < 3) // Nastavte podle potřeby
             {
-                Canvas_Fail.SetActive(true);
+                Canvas_Checkpoint.SetActive(true);
+                i++; // Přeskočíme na další checkpoint, pokud je tento aktivován
+            }
+        }
+
+        /*for (int i = 0; i < Checkpoint.Length; i++)
+        {
+            Debug.Log($"Aktuální checkpoint: {Checkpoint[i]?.name ?? "NULL"}");
+
+            float distance = Vector3.Distance(transform.position, Checkpoint[i].transform.position);
+
+            if (distance < activationDistance)
+            {
+                Canvas_Checkpoint.SetActive(true);
+                DelayAction();
+                Canvas_Checkpoint.SetActive(false);
             }
         }*/
+    }
+
+    IEnumerator DelayAction()
+    {
+        yield return new WaitForSeconds(5);
     }
 }
