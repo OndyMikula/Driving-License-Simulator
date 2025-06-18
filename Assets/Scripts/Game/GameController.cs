@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
         if (Canvas_Success != null)
             Canvas_Success.SetActive(false);
         if (Canvas_Checkpoint != null)
-            Canvas_Checkpoint.SetActive(true);
+            Canvas_Checkpoint.SetActive(false);
         if (Canvas_Fail != null)
             Canvas_Fail.SetActive(false);
 
@@ -78,6 +78,8 @@ public class GameController : MonoBehaviour
             if (distance < 3) // Nastavte podle potřeby
             {
                 Canvas_Checkpoint.SetActive(true);
+                StartCoroutine(DelayAction());
+                Canvas_Checkpoint.SetActive(false);
                 i++; // Přeskočíme na další checkpoint, pokud je tento aktivován
             }
         }
