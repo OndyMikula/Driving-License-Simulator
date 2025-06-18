@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     // dat mesto
     // chodce
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     //           po narazu do baraku bude prehranej zvuk BYEBYE
 
     GameObject player;
+    [SerializeField] GameObject[] DrivingLine;
 
     GameObject Canvas_Fail;
     GameObject Canvas_Success;
@@ -29,6 +31,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+
         Canvas_Fail = GameObject.Find("Canvas_Fail");
         Canvas_Success = GameObject.Find("Canvas_Success");
 
@@ -39,6 +43,36 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (CarController.currentSpeed >= 6)
+            Canvas_Fail.SetActive(true);*/
 
+        if (Canvas_Fail == null || DrivingLine == null || DrivingLine.Length == 0)
+            return;
+
+        foreach (var line in DrivingLine)
+        {
+            var col = line.GetComponent<BoxCollider>();
+
+            // Získání upravených hranic s bezpečnostní mezí
+            Bounds bounds = new Bounds(col.bounds.center, col.bounds.size + Vector3.one * 0.1f);
+
+            // Přesná detekce s vizualizací
+            if (bounds.Contains(transform.position))
+            {
+                if (!Canvas_Fail.activeSelf)
+                {
+                    Canvas_Fail.SetActive(true);
+                }
+            }
+        }
+
+        /*if (DrivingLine != null && Canvas_Fail != null)
+        {
+            float distance = Vector3.Distance(transform.position, DrivingLine.transform.position);
+            if (distance < 3) // Nastavte podle potřeby
+            {
+                Canvas_Fail.SetActive(true);
+            }
+        }*/
     }
 }
