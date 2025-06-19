@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class GameController : MonoBehaviour
 {
@@ -55,8 +57,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (CarController.currentSpeed >= 6)
-            Canvas_Fail.SetActive(true);*/
+        Debug.Log($"Aktuální pozice hráče: {transform.position}");
 
         foreach (var line in DrivingLine)
         {
