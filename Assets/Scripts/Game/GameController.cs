@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -24,10 +25,12 @@ public class GameController : MonoBehaviour
     //           bude tam skrytej easter egg s kaprem a zdendou
     //           po narazu do baraku bude prehranej zvuk BYEBYE
 
+    public TMP_Text scoretxt;
+    int score = 0;
+
     GameObject player;
     [SerializeField] GameObject[] DrivingLine;
     [SerializeField] GameObject[] Checkpoint;
-    float activationDistance = 3; // Vzdálenost pro aktivaci checkpointu
 
     GameObject Canvas_Checkpoint;
     GameObject Canvas_Fail;
@@ -38,27 +41,18 @@ public class GameController : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
 
-        Canvas_Checkpoint = GameObject.Find("Canvas_Checkpoint");
-        Canvas_Fail = GameObject.Find("Canvas_Fail");
-        Canvas_Success = GameObject.Find("Canvas_Success");
+        CanvasManager.FailCanvas = this.Canvas_Fail;
+        CanvasManager.SuccessCanvas = this.Canvas_Success;
+        CanvasManager.CheckpointCanvas = this.Canvas_Checkpoint;
 
-        if (Canvas_Success != null)
-            Canvas_Success.SetActive(false);
-        if (Canvas_Checkpoint != null)
-            Canvas_Checkpoint.SetActive(false);
-        if (Canvas_Fail != null)
-            Canvas_Fail.SetActive(false);
-
-        /*Canvas_Checkpoint.SetActive(false);
+        Canvas_Checkpoint.SetActive(false);
         Canvas_Fail.SetActive(false);
-        Canvas_Success.SetActive(false);*/
+        Canvas_Success.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"Aktuální pozice hráče: {transform.position}");
-
         foreach (var line in DrivingLine)
         {
             var collider = line.GetComponent<BoxCollider>();
@@ -73,17 +67,19 @@ public class GameController : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < Checkpoint.Length; )
+        if (player.transform.position.x >= 225 && player.transform.position.x <= 228 &&
+            player.transform.position.z >= 246 && player.transform.position.z <= 247)
         {
-            float distance = Vector3.Distance(transform.position, Checkpoint[i].transform.position);
-            if (distance < 3) // Nastavte podle potřeby
-            {
-                Canvas_Checkpoint.SetActive(true);
-                StartCoroutine(DelayAction());
-                Canvas_Checkpoint.SetActive(false);
-                i++; // Přeskočíme na další checkpoint, pokud je tento aktivován
-            }
+            Canvas_Success.SetActive(true);
+            scoretxt.text = $"Počet rizzu: {score}";
         }
+        else if (player.transform.position.x >= 41 && player.transform.position.x <= 44 &&
+                player.transform.position.z >= 134 && player.transform.position.z <= 138)
+        {
+            Canvas_Checkpoint.SetActive(true);
+            score += 9999;
+        }
+
 
         /*for (int i = 0; i < Checkpoint.Length; i++)
         {

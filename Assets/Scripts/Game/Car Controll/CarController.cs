@@ -12,36 +12,36 @@ public class CarController : MonoBehaviour
     public float maxSpeed = 30;
     public float turnSpeed = 100;
     public float brakePower = 10;
-
     public float currentSpeed = 0;
-    private float forwardInput = 0;
-    private float steerInput = 0;
-    private bool isBraking = false;
+    
+    float forwardInput = 0;
+    float steerInput = 0;
+    bool isBraking = false;
+
 
     GameObject Canvas_Fail;
-    public TMP_Text currentSpeedTxt;
-
+    GameObject Canvas_Success;
+    TMP_Text currentSpeedTxt;
     void Start()
     {
-        Canvas_Fail = GameObject.Find("Canvas_Fail");
-        if (Canvas_Fail != null)
-            Canvas_Fail.SetActive(false);
+        CanvasManager.FailCanvas = this.Canvas_Fail;
+        CanvasManager.SuccessCanvas = this.Canvas_Success;
     }
 
     void Update()
     {
-        // AKCELERACE & DOJEZD
+        // Zrychleni
         if (forwardInput != 0)
         {
             currentSpeed += forwardInput * acceleration * Time.deltaTime;
         }
         else if (!isBraking)
         {
-            // Dojezd (postupné zpomalení)
+            // Dojezd
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.deltaTime);
         }
 
-        // BRZDA
+        // Brzda
         if (isBraking)
         {
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0, brakePower * Time.deltaTime);
@@ -66,6 +66,13 @@ public class CarController : MonoBehaviour
         }
 
         currentSpeedTxt.text = "Current Speed: " + currentSpeed.ToString("F0");
+
+        if (Canvas_Fail.activeSelf || Canvas_Success.activeSelf)
+        {
+            currentSpeed = 0;
+            maxSpeed = 0;
+            currentSpeedTxt.text = "";
+        }
 
     }
 
