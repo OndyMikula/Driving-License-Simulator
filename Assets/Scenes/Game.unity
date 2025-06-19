@@ -9360,7 +9360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &369081400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31760,19 +31760,6 @@ MonoBehaviour:
   turnSpeed: 50
   brakePower: 30
   currentSpeed: 0
---- !u!114 &1230274158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230274146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c3aab5b86257d4f89192849dfd3cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoretxt: {fileID: 162451691}
   DrivingLine:
   - {fileID: 911310380}
   - {fileID: 793761210}
@@ -31790,6 +31777,7 @@ MonoBehaviour:
   - {fileID: 285241940}
   - {fileID: 1671640808}
   - {fileID: 1286404176}
+  - {fileID: 1359502671}
   - {fileID: 1746970322}
   - {fileID: 2113579831}
   - {fileID: 552015158}
@@ -31804,8 +31792,11 @@ MonoBehaviour:
   - {fileID: 1111232734}
   - {fileID: 450229480}
   - {fileID: 1327846609}
-  - {fileID: 1359502671}
-  Checkpoint: []
+  Canvas_Fail: {fileID: 369081399}
+  Canvas_Success: {fileID: 1003862180}
+  Canvas_Checkpoint: {fileID: 828168584}
+  currentSpeedTxt: {fileID: 521385531}
+  scoretxt: {fileID: 162451691}
 --- !u!1001 &1230544164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42811,9 +42802,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7769690492283750692, guid: f40e52a0c26735a46b681671fb2baa40, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1230274152}
-    - targetCorrespondingSourceObject: {fileID: 7769690492283750692, guid: f40e52a0c26735a46b681671fb2baa40, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1230274158}
   m_SourcePrefab: {fileID: 100100000, guid: f40e52a0c26735a46b681671fb2baa40, type: 3}
 --- !u!1001 &1648150269
 PrefabInstance:
