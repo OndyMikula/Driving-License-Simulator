@@ -15,7 +15,7 @@ public class CreditsSwitch : MonoBehaviour
         Credits2 = GameObject.Find("Canvas_Page2");
         Credits3 = GameObject.Find("Canvas_Page3");
 
-        Credits1.SetActive(false);
+        Credits1.SetActive(true);
         Credits2.SetActive(false);
         Credits3.SetActive(false);
     }
