@@ -11,6 +11,6 @@ public class ExitBtn : MonoBehaviour
         // If running in the editor, stop playing the scene
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#endif
+        #endif
     }
 }

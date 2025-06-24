@@ -66,10 +66,8 @@ public class CarController : MonoBehaviour
         {
             var collider = line.GetComponent<BoxCollider>();
 
-            // Získání upravených hranic s bezpečnostní mezí
             Bounds bounds = new Bounds(collider.bounds.center, collider.bounds.size + Vector3.one * 0.1f);
 
-            // Přesná detekce s vizualizací
             if (bounds.Contains(transform.position))
             {
                 Canvas_Fail.SetActive(true);
@@ -136,7 +134,6 @@ public class CarController : MonoBehaviour
         }
 
     }
-
     #region InputSystem
     public void OnForward(InputAction.CallbackContext context)
     {
