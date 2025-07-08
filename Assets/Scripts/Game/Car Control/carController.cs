@@ -7,6 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class CarController : MonoBehaviour
 {
+
     // dat mesto
     // chodce
     // krizovatky kde najednou prijedou 3 auta a ty musis vybrat v jakym poradi pojedou a system overi jestlis to udelal spravne nebo spatne
@@ -25,6 +26,7 @@ public class CarController : MonoBehaviour
     //           po narazu do baraku bude prehranej zvuk BYEBYE
 
     // Start is called before the first frame update
+    #region Variables
     public float acceleration = 5;
     public float deceleration = 3;
     public float maxSpeed = 30;
@@ -46,6 +48,7 @@ public class CarController : MonoBehaviour
     public TMP_Text currentSpeedTxt;
     public TMP_Text scoretxt;
     int score = 0;
+    #endregion
 
     void Start()
     {
@@ -74,6 +77,7 @@ public class CarController : MonoBehaviour
             }
         }
 
+        // Checkpointy
         if (player.transform.position.x >= 225 && player.transform.position.x <= 228 &&
             player.transform.position.z >= 246 && player.transform.position.z <= 247)
         {
@@ -112,9 +116,15 @@ public class CarController : MonoBehaviour
         transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
 
         // Otáčení
-        if (currentSpeed > 1.5)
+        if (Mathf.Abs(currentSpeed) > 1.5)
         {
-            transform.Rotate(Vector3.up, steerInput * turnSpeed * Time.deltaTime);
+            float otaceni = steerInput * turnSpeed * Time.deltaTime;
+
+            // Při couvání otáčíme opačně
+            if (currentSpeed < 0)
+                otaceni = -otaceni;
+
+            transform.Rotate(Vector3.up, otaceni);
         }
         #endregion
 

@@ -281,7 +281,6 @@ GameObject:
   - component: {fileID: 8807397}
   - component: {fileID: 8807396}
   - component: {fileID: 8807395}
-  - component: {fileID: 8807394}
   m_Layer: 5
   m_Name: MenuBtn
   m_TagString: Untagged
@@ -309,18 +308,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 100, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8807394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8807392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1659a96014347488f5a22693b43c3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8807395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,9 +352,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuBtn, Assembly-CSharp
-        m_MethodName: OnMenuButtonClick
+      - m_Target: {fileID: 393632697}
+        m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
+        m_MethodName: MenuClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5869,14 +5856,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 233044963}
-  - component: {fileID: 233044964}
   m_Layer: 0
   m_Name: Checkpoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &233044963
 Transform:
   m_ObjectHideFlags: 0
@@ -5894,19 +5880,6 @@ Transform:
   - {fileID: 2120384073}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &233044964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233044962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9310a6825572584b912e31f92612e36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpoints: []
 --- !u!1001 &234214985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6139,7 +6112,6 @@ GameObject:
   - component: {fileID: 239556834}
   - component: {fileID: 239556833}
   - component: {fileID: 239556832}
-  - component: {fileID: 239556831}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -6167,18 +6139,6 @@ RectTransform:
   m_AnchoredPosition: {x: 106, y: -60}
   m_SizeDelta: {x: 100, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &239556831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239556829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad6bb6e1cbb2ada40863664403979fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &239556832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6223,9 +6183,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 239556831}
-        m_TargetAssemblyTypeName: ExitBtn, Assembly-CSharp
-        m_MethodName: OnExitButtonClick
+      - m_Target: {fileID: 393632697}
+        m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
+        m_MethodName: ExitClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9900,6 +9860,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+--- !u!1 &393632696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 393632698}
+  - component: {fileID: 393632697}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &393632697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393632696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefe806161379f34d9cd4b108971e672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &393632698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393632696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 498.70135, y: 171.54115, z: -11.010657}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &393983363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2d5fb229ae2945742b900a405a5e7a0b, type: 3}
@@ -16030,7 +16034,6 @@ GameObject:
   - component: {fileID: 658605461}
   - component: {fileID: 658605460}
   - component: {fileID: 658605459}
-  - component: {fileID: 658605458}
   m_Layer: 5
   m_Name: PlayBtn
   m_TagString: Untagged
@@ -16058,18 +16061,6 @@ RectTransform:
   m_AnchoredPosition: {x: -105, y: -60}
   m_SizeDelta: {x: 100, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &658605458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 658605456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29070fdf020c42940b2faf26f047bc8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &658605459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16114,9 +16105,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658605458}
-        m_TargetAssemblyTypeName: PlayBtn, Assembly-CSharp
-        m_MethodName: OnPlayButtonClick
+      - m_Target: {fileID: 393632697}
+        m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34924,7 +34915,6 @@ GameObject:
   - component: {fileID: 1346745507}
   - component: {fileID: 1346745506}
   - component: {fileID: 1346745505}
-  - component: {fileID: 1346745504}
   m_Layer: 5
   m_Name: PlayBtn
   m_TagString: Untagged
@@ -34952,18 +34942,6 @@ RectTransform:
   m_AnchoredPosition: {x: -105, y: -60}
   m_SizeDelta: {x: 100, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1346745504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346745502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29070fdf020c42940b2faf26f047bc8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1346745505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35008,9 +34986,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1346745504}
-        m_TargetAssemblyTypeName: PlayBtn, Assembly-CSharp
-        m_MethodName: OnPlayButtonClick
+      - m_Target: {fileID: 393632697}
+        m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36982,7 +36960,6 @@ GameObject:
   - component: {fileID: 1416649805}
   - component: {fileID: 1416649804}
   - component: {fileID: 1416649803}
-  - component: {fileID: 1416649802}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -37010,18 +36987,6 @@ RectTransform:
   m_AnchoredPosition: {x: 106, y: -60}
   m_SizeDelta: {x: 100, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1416649802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416649800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad6bb6e1cbb2ada40863664403979fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1416649803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37066,9 +37031,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1416649802}
-        m_TargetAssemblyTypeName: ExitBtn, Assembly-CSharp
-        m_MethodName: OnExitButtonClick
+      - m_Target: {fileID: 393632697}
+        m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
+        m_MethodName: ExitClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -50446,7 +50411,6 @@ GameObject:
   - component: {fileID: 1922395201}
   - component: {fileID: 1922395200}
   - component: {fileID: 1922395199}
-  - component: {fileID: 1922395202}
   m_Layer: 5
   m_Name: MenuBtn
   m_TagString: Untagged
@@ -50518,9 +50482,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1922395202}
-        m_TargetAssemblyTypeName: MenuBtn, Assembly-CSharp
-        m_MethodName: OnMenuButtonClick
+      - m_Target: {fileID: 393632697}
+        m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
+        m_MethodName: MenuClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -50568,18 +50532,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922395196}
   m_CullTransparentMesh: 1
---- !u!114 &1922395202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922395196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c4540418f9804fbfe7b19871bc72b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1924953693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
@@ -55682,6 +55634,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 705507995}
+  - {fileID: 393632698}
   - {fileID: 233044963}
   - {fileID: 635432919}
   - {fileID: 1647978657}

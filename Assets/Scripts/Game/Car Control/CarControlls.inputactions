@@ -167,7 +167,7 @@
                 {
                     "name": "",
                     "id": "70f9c215-deb5-4ed0-9eed-b5ce3c0cfc1d",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -190,17 +190,6 @@
                     "name": "",
                     "id": "6a13d2bf-1b23-47ea-9608-6192ae117690",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Brake",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ad192ee0-d384-4d99-ac09-d225a68f787a",
-                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
