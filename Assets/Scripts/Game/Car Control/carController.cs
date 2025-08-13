@@ -22,12 +22,11 @@ public class CarController : MonoBehaviour
     //           pri prujezdu okolo chodcu budes moct (treba na klavesu) rict Dobrý DEN a oni odpovi Ty čůráku deblní vole 
     //           budes sbirat zdenda coiny
     //           bude schovanej giga obrazek zdendy co kdyz ho najdes tak te bude honit pres celou mapu a furt se ti bude smat a rikat KAPR S NIVOU
-    //           bude tam skrytej easter egg s kaprem a zdendou
     //           po narazu do baraku bude prehranej zvuk BYEBYE
 
     // Start is called before the first frame update
     #region Variables
-    public float acceleration = 5;
+    public float acceleration = 2;
     public float deceleration = 3;
     public float maxSpeed = 30;
     public float turnSpeed = 100;
@@ -48,6 +47,8 @@ public class CarController : MonoBehaviour
     public TMP_Text currentSpeedTxt;
     public TMP_Text scoretxt;
     int score = 0;
+
+    Rigidbody rb;
     #endregion
 
     void Start()
@@ -61,6 +62,8 @@ public class CarController : MonoBehaviour
         Canvas_Checkpoint.SetActive(false);
         Canvas_Fail.SetActive(false);
         Canvas_Success.SetActive(false);
+
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -95,37 +98,30 @@ public class CarController : MonoBehaviour
         // Zrychleni
         if (forwardInput != 0)
         {
-            currentSpeed += forwardInput * acceleration * Time.deltaTime;
+            currentSpeed += forwardInput * acceleration * Time.fixedDeltaTime;
         }
         else if (!isBraking)
         {
-            // Dojezd
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.deltaTime);
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
         }
 
-        // Brzda
         if (isBraking)
         {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, brakePower * Time.deltaTime);
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, brakePower * Time.fixedDeltaTime);
         }
 
-        // Limit rychlosti
         currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
 
-        // Pohyb
-        transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+        // Fyzikální pohyb a rotace
+        Vector3 move = transform.forward * currentSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + move);
 
-        // Otáčení
-        if (Mathf.Abs(currentSpeed) > 1.5)
+        if (Mathf.Abs(currentSpeed) > 1.5f)
         {
-            float otaceni = steerInput * turnSpeed * Time.deltaTime;
-
-            // Při couvání otáčíme opačně
-            if (currentSpeed < 0)
-                otaceni = -otaceni;
-
-            transform.Rotate(Vector3.up, otaceni);
+            Quaternion deltaRot = Quaternion.Euler(Vector3.up * steerInput * turnSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaRot);
         }
+
         #endregion
 
         // Moc rychlá jízda byebye
