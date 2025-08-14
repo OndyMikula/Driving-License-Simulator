@@ -31741,9 +31741,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 2
-  deceleration: 3
+  deceleration: 2
   maxSpeed: 30
-  turnSpeed: 50
+  turnSpeed: 15
   brakePower: 30
   currentSpeed: 0
   DrivingLine:

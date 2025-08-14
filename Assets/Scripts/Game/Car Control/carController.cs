@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
@@ -98,7 +99,7 @@ public class CarController : MonoBehaviour
         // Zrychleni
         if (forwardInput != 0)
         {
-            currentSpeed += forwardInput * acceleration * Time.fixedDeltaTime;
+            currentSpeed += forwardInput * acceleration * 0.45f * Time.fixedDeltaTime;
         }
         else if (!isBraking)
         {
@@ -116,9 +117,14 @@ public class CarController : MonoBehaviour
         Vector3 move = transform.forward * currentSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + move);
 
-        if (Mathf.Abs(currentSpeed) > 1.5f)
+        if (currentSpeed > 0.5f)
         {
             Quaternion deltaRot = Quaternion.Euler(Vector3.up * steerInput * turnSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaRot);
+        }
+        else if (currentSpeed < -0.5f)
+        {
+            Quaternion deltaRot = Quaternion.Euler(Vector3.up * -steerInput * turnSpeed * Time.fixedDeltaTime);
             rb.MoveRotation(rb.rotation * deltaRot);
         }
 
@@ -134,6 +140,16 @@ public class CarController : MonoBehaviour
 
         if (Canvas_Fail.activeSelf)
         {
+            currentSpeed = 0;
+            maxSpeed = 0;
+            currentSpeedTxt.text = "";
+        }
+
+        if(transform.position.y < -20)
+        {
+            transform.position = new Vector3(32, (float)0.12, 37);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Canvas_Fail.SetActive(true);
             currentSpeed = 0;
             maxSpeed = 0;
             currentSpeedTxt.text = "";
