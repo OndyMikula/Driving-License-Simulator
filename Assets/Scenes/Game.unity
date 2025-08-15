@@ -31740,6 +31740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e19c2c3a1106749aa457b4153524c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameC: {fileID: 1495855748}
   acceleration: 2
   deceleration: 2
   maxSpeed: 30
@@ -31778,9 +31779,6 @@ MonoBehaviour:
   - {fileID: 1111232734}
   - {fileID: 450229480}
   - {fileID: 1327846609}
-  Canvas_Fail: {fileID: 369081399}
-  Canvas_Success: {fileID: 1003862180}
-  Canvas_Checkpoint: {fileID: 828168584}
   currentSpeedTxt: {fileID: 521385531}
   scoretxt: {fileID: 162451691}
 --- !u!54 &1230274159
@@ -38957,6 +38955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1495855747}
+  - component: {fileID: 1495855748}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -38981,6 +38980,22 @@ Transform:
   - {fileID: 1943354225}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1495855748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495855746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e4cbec58ee9de4181fe40160438d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carC: {fileID: 1230274155}
+  Canvas_Fail: {fileID: 369081399}
+  Canvas_Success: {fileID: 1003862180}
+  Canvas_Checkpoint: {fileID: 828168584}
 --- !u!4 &1496756942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
@@ -55706,6 +55721,6 @@ SceneRoots:
   - {fileID: 635432919}
   - {fileID: 1647978657}
   - {fileID: 1495855747}
+  - {fileID: 20986210}
   - {fileID: 1281913523}
   - {fileID: 685353833}
-  - {fileID: 20986210}

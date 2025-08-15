@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class CarController : MonoBehaviour
+public class carController : MonoBehaviour
 {
 
     // dat mesto
@@ -27,23 +27,21 @@ public class CarController : MonoBehaviour
 
     // Start is called before the first frame update
     #region Variables
+    public gameController gameC; //musi bejt public
+
     public float acceleration = 2;
     public float deceleration = 3;
     public float maxSpeed = 30;
     public float turnSpeed = 100;
     public float brakePower = 10;
     public float currentSpeed = 0;
-    
+
     float forwardInput = 0;
     float steerInput = 0;
     bool isBraking = false;
 
     GameObject player;
     [SerializeField] GameObject[] DrivingLine;
-
-    public GameObject Canvas_Fail;
-    public GameObject Canvas_Success;
-    public GameObject Canvas_Checkpoint;
 
     public TMP_Text currentSpeedTxt;
     public TMP_Text scoretxt;
@@ -56,19 +54,15 @@ public class CarController : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
 
-        Canvas_Fail = GameObject.Find("Canvas_Fail");
-        Canvas_Success = GameObject.Find("Canvas_Success");
-        Canvas_Checkpoint = GameObject.Find("Canvas_Checkpointy");
-
-        Canvas_Checkpoint.SetActive(false);
-        Canvas_Fail.SetActive(false);
-        Canvas_Success.SetActive(false);
-
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        CarMove();
+        Checkpoint();
+
+        // Kontrola kolize s DrivingLine
         foreach (var line in DrivingLine)
         {
             var collider = line.GetComponent<BoxCollider>();
@@ -77,79 +71,30 @@ public class CarController : MonoBehaviour
 
             if (bounds.Contains(transform.position))
             {
-                Canvas_Fail.SetActive(true);
+                gameC.Canvas_Fail.SetActive(true);
             }
-        }
-
-        // Checkpointy
-        if (player.transform.position.x >= 225 && player.transform.position.x <= 228 &&
-            player.transform.position.z >= 246 && player.transform.position.z <= 247)
-        {
-            Canvas_Success.SetActive(true);
-            scoretxt.text = $"Počet rizzu: {score}";
-        }
-        else if (player.transform.position.x >= 41 && player.transform.position.x <= 44 &&
-                player.transform.position.z >= 134 && player.transform.position.z <= 138)
-        {
-            Canvas_Checkpoint.SetActive(true);
-            score += 9999;
-        }
-
-        #region InputSystem
-        // Zrychleni
-        if (forwardInput != 0)
-        {
-            currentSpeed += forwardInput * acceleration * 0.45f * Time.fixedDeltaTime;
-        }
-        else if (!isBraking)
-        {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
-        }
-
-        if (isBraking)
-        {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, brakePower * Time.fixedDeltaTime);
-        }
-
-        currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
-
-        // Fyzikální pohyb a rotace
-        Vector3 move = transform.forward * currentSpeed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + move);
-
-        if (currentSpeed > 0.5f)
-        {
-            Quaternion deltaRot = Quaternion.Euler(Vector3.up * steerInput * turnSpeed * Time.fixedDeltaTime);
-            rb.MoveRotation(rb.rotation * deltaRot);
-        }
-        else if (currentSpeed < -0.5f)
-        {
-            Quaternion deltaRot = Quaternion.Euler(Vector3.up * -steerInput * turnSpeed * Time.fixedDeltaTime);
-            rb.MoveRotation(rb.rotation * deltaRot);
-        }
-
-        #endregion
+        }    
 
         // Moc rychlá jízda byebye
         if (currentSpeed >= 25)
         {
-            Canvas_Fail.SetActive(true);
+            gameC.Canvas_Fail.SetActive(true);
         }
 
         currentSpeedTxt.text = "Current Speed: " + currentSpeed.ToString("F0");
 
-        if (Canvas_Fail.activeSelf)
+        if (gameC.Canvas_Fail.activeSelf)
         {
             currentSpeed = 0;
             maxSpeed = 0;
             currentSpeedTxt.text = "";
         }
 
-        if(transform.position.y < -20)
+        if (transform.position.y < -20)
         {
             transform.position = new Vector3(32, (float)0.12, 37);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            Canvas_Fail.SetActive(true);
+            gameC.Canvas_Fail.SetActive(true);
             currentSpeed = 0;
             maxSpeed = 0;
             currentSpeedTxt.text = "";
@@ -183,4 +128,59 @@ public class CarController : MonoBehaviour
         isBraking = context.ReadValueAsButton();
     }
     #endregion
+    public void CarMove()
+    {
+        // Zrychleni
+        if (forwardInput != 0)
+        {
+            currentSpeed += forwardInput * acceleration * 0.2f * Time.fixedDeltaTime;
+        }
+        /*else if (currentSpeed > 4)  //priprava na razeni
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
+        }*/
+
+
+        else if (!isBraking)
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
+        }
+
+        if (isBraking)
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, brakePower * Time.fixedDeltaTime);
+        }
+
+        currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
+
+        // Fyzikální pohyb a rotace
+        Vector3 move = transform.forward * (currentSpeed * 0.3f) * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + move);
+
+        if (currentSpeed > 0.5f)
+        {
+            Quaternion deltaRot = Quaternion.Euler(Vector3.up * steerInput * turnSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaRot);
+        }
+        else if (currentSpeed < -0.5f)
+        {
+            Quaternion deltaRot = Quaternion.Euler(Vector3.up * -steerInput * turnSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaRot);
+        }
+    }
+    public void Checkpoint()
+    {
+        if (player.transform.position.x >= 225 && player.transform.position.x <= 228 &&
+            player.transform.position.z >= 246 && player.transform.position.z <= 247)
+        {
+            gameC.Canvas_Success.SetActive(true);
+            scoretxt.text = $"Počet rizzu: {score}";
+        }
+        else if (player.transform.position.x >= 41 && player.transform.position.x <= 44 &&
+                player.transform.position.z >= 134 && player.transform.position.z <= 138)
+        {
+            gameC.Canvas_Checkpoint.SetActive(true);
+            score += 9999;
+        }
+    }
 }
