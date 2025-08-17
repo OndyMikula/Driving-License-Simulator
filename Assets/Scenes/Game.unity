@@ -46654,6 +46654,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 685353833}
     m_Modifications:
+    - target: {fileID: -5253090426874411344, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
+      propertyPath: m_Height
+      value: 6.5024686
+      objectReference: {fileID: 0}
+    - target: {fileID: -5253090426874411344, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
+      propertyPath: m_Radius
+      value: 0.2534504
+      objectReference: {fileID: 0}
+    - target: {fileID: -5253090426874411344, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
+      propertyPath: m_Center.x
+      value: 0.1509341
+      objectReference: {fileID: 0}
+    - target: {fileID: -5253090426874411344, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
+      propertyPath: m_Center.y
+      value: 3.1762564
+      objectReference: {fileID: 0}
+    - target: {fileID: -5253090426874411344, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
+      propertyPath: m_Center.z
+      value: 0.036404848
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
       propertyPath: m_Name
       value: Props_Street Light (70)
