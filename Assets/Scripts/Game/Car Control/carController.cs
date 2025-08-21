@@ -40,12 +40,10 @@ public class carController : MonoBehaviour
     float steerInput = 0;
     bool isBraking = false;
 
-    GameObject player;
+    public GameObject player;
     [SerializeField] GameObject[] DrivingLine;
 
     public TMP_Text currentSpeedTxt;
-    public TMP_Text scoretxt;
-    int score = 0;
 
     Rigidbody rb;
     #endregion
@@ -60,7 +58,6 @@ public class carController : MonoBehaviour
     void Update()
     {
         CarMove();
-        Checkpoint();
 
         // Kontrola kolize s DrivingLine
         foreach (var line in DrivingLine)
@@ -166,21 +163,6 @@ public class carController : MonoBehaviour
         {
             Quaternion deltaRot = Quaternion.Euler(Vector3.up * -steerInput * turnSpeed * Time.fixedDeltaTime);
             rb.MoveRotation(rb.rotation * deltaRot);
-        }
-    }
-    public void Checkpoint()
-    {
-        if (player.transform.position.x >= 225 && player.transform.position.x <= 228 &&
-            player.transform.position.z >= 246 && player.transform.position.z <= 247)
-        {
-            gameC.Canvas_Success.SetActive(true);
-            scoretxt.text = $"Počet rizzu: {score}";
-        }
-        else if (player.transform.position.x >= 41 && player.transform.position.x <= 44 &&
-                player.transform.position.z >= 134 && player.transform.position.z <= 138)
-        {
-            gameC.Canvas_Checkpoint.SetActive(true);
-            score += 9999;
         }
     }
 }
