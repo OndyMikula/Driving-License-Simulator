@@ -59,19 +59,6 @@ public class carController : MonoBehaviour
     {
         CarMove();
 
-        // Kontrola kolize s DrivingLine
-        foreach (var line in DrivingLine)
-        {
-            var collider = line.GetComponent<BoxCollider>();
-
-            Bounds bounds = new Bounds(collider.bounds.center, collider.bounds.size + Vector3.one * 0.1f);
-
-            if (bounds.Contains(transform.position))
-            {
-                gameC.Canvas_Fail.SetActive(true);
-            }
-        }    
-
         // Moc rychlá jízda byebye
         if (currentSpeed >= 25)
         {
