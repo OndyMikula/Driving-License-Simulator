@@ -85,6 +85,11 @@ public class carController : MonoBehaviour
         }
 
     }
+
+    void FixedUpdate()
+    {
+        //CarMove();
+    }
     #region InputSystem
     public void OnForward(InputAction.CallbackContext context)
     {

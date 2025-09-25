@@ -6,7 +6,12 @@ public class controll : MonoBehaviour
 {
     public gameController gameC; // musí bejt public
 
-    private void OnTriggerEnter(Collider other)
+    void Start()
+    {
+        gameC = FindAnyObjectByType<gameController>();  
+    }
+
+    private void OnCollisionEnter(Collision collision)
     {
         gameC.Canvas_Fail.SetActive(true);
     }
