@@ -1,3 +1,14 @@
 Type mismatch = dragging GameObject but using Collider in the code (example)
 		if cant drag onto prefub but can onto prefub instance - gameController gameC = FindObjectOfType<gameController>(); 
 		(must also inicialize before void Start() - read collisionTrigger.cs)
+
+Nejde klikat na UI objekty (napr. buttony)
+	problem neni:
+		ostatni canvas nebrani ve stisku
+		script funguje v menu scene
+		button z jinych scen v game scene nelze stisknout
+		Canvas parent nebrani ve stisku
+		tag nebrani
+
+	co pomohlo: 
+		chybel event system (s komponentama Event System & Input System UI Input Module)
