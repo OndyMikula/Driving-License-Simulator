@@ -11,7 +11,7 @@ public class controll : MonoBehaviour
         gameC = FindAnyObjectByType<gameController>();  
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         gameC.Canvas_Fail.SetActive(true);
     }
