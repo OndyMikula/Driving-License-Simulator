@@ -41,8 +41,6 @@ public class carController : MonoBehaviour
     bool isBraking = false;
 
     public GameObject player;
-    [SerializeField] GameObject[] DrivingLine;
-
     public TMP_Text currentSpeedTxt;
 
     Rigidbody rb;
@@ -65,7 +63,8 @@ public class carController : MonoBehaviour
             gameC.Canvas_Fail.SetActive(true);
         }
 
-        currentSpeedTxt.text = "Current Speed: " + currentSpeed.ToString("F0");
+        double currentSpeedVisible = currentSpeed * 2.5;
+        currentSpeedTxt.text = "Current Speed: " + currentSpeedVisible.ToString("F0");
 
         if (gameC.Canvas_Fail.activeSelf)
         {
@@ -146,12 +145,12 @@ public class carController : MonoBehaviour
         Vector3 move = transform.forward * (currentSpeed * 0.3f) * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + move);
 
-        if (currentSpeed > 0.5f)
+        if (currentSpeed > 0.5f) //zataceni
         {
             Quaternion deltaRot = Quaternion.Euler(Vector3.up * steerInput * turnSpeed * Time.fixedDeltaTime);
             rb.MoveRotation(rb.rotation * deltaRot);
         }
-        else if (currentSpeed < -0.5f)
+        else if (currentSpeed < -0.5f) //couvani pri couvani
         {
             Quaternion deltaRot = Quaternion.Euler(Vector3.up * -steerInput * turnSpeed * Time.fixedDeltaTime);
             rb.MoveRotation(rb.rotation * deltaRot);
