@@ -27,20 +27,19 @@ public class carController : MonoBehaviour
 
     // Start is called before the first frame update
     #region Variables
-    public gameController gameC; //musi bejt public
+    public gameController gameC;
 
-    public float acceleration = 2;
-    public float deceleration = 3;
-    public float maxSpeed = 30;
-    public float turnSpeed = 100;
-    public float brakePower = 10;
-    public float currentSpeed = 0;
+    public float acceleration;
+    public float deceleration;
+    public float maxSpeed;
+    public float turnSpeed;
+    public float brakePower;
+    public float currentSpeed;
 
     float forwardInput = 0;
     float steerInput = 0;
     bool isBraking = false;
 
-    public GameObject player;
     public TMP_Text currentSpeedTxt;
 
     Rigidbody rb;
@@ -48,23 +47,12 @@ public class carController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
-
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        CarMove();
-
-        // Moc rychlá jízda byebye
-        if (currentSpeed >= 25)
-        {
-            gameC.Canvas_Fail.SetActive(true);
-        }
-
-        double currentSpeedVisible = currentSpeed * 2.5;
-        currentSpeedTxt.text = "Current Speed: " + currentSpeedVisible.ToString("F0");
+        currentSpeedTxt.text = "Current Speed: " + currentSpeed.ToString("F0");
 
         if (gameC.Canvas_Fail.activeSelf)
         {
@@ -73,7 +61,7 @@ public class carController : MonoBehaviour
             currentSpeedTxt.text = "";
         }
 
-        if (transform.position.y < -20)
+        if (transform.position.y < -20) //spadnul z mapy
         {
             transform.position = new Vector3(32, (float)0.12, 37);
             transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -87,41 +75,11 @@ public class carController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //CarMove();
-    }
-    #region InputSystem
-    public void OnForward(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            forwardInput = 1;
-        else if (context.canceled)
-            forwardInput = 0;
-    }
-
-    public void OnBackward(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            forwardInput = -1;
-        else if (context.canceled)
-            forwardInput = 0;
-    }
-
-    public void OnSteer(InputAction.CallbackContext context)
-    {
-        steerInput = context.ReadValue<float>();
-    }
-
-    public void OnBrake(InputAction.CallbackContext context)
-    {
-        isBraking = context.ReadValueAsButton();
-    }
-    #endregion
-    public void CarMove()
-    {
+        #region CarMovement
         // Zrychleni
         if (forwardInput != 0)
         {
-            currentSpeed += forwardInput * acceleration * 0.2f * Time.fixedDeltaTime;
+            currentSpeed += forwardInput * acceleration * 2.2f * Time.fixedDeltaTime;
         }
         /*else if (currentSpeed > 4)  //priprava na razeni
         {
@@ -155,5 +113,33 @@ public class carController : MonoBehaviour
             Quaternion deltaRot = Quaternion.Euler(Vector3.up * -steerInput * turnSpeed * Time.fixedDeltaTime);
             rb.MoveRotation(rb.rotation * deltaRot);
         }
+        #endregion
     }
+    #region InputSystem
+    public void OnForward(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            forwardInput = 1;
+        else if (context.canceled)
+            forwardInput = 0;
+    }
+
+    public void OnBackward(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            forwardInput = -1;
+        else if (context.canceled)
+            forwardInput = 0;
+    }
+
+    public void OnSteer(InputAction.CallbackContext context)
+    {
+        steerInput = context.ReadValue<float>();
+    }
+
+    public void OnBrake(InputAction.CallbackContext context)
+    {
+        isBraking = context.ReadValueAsButton();
+    }
+    #endregion
 }

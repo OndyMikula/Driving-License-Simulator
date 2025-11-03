@@ -20,12 +20,6 @@ public class CreditsSwitch : MonoBehaviour
         Credits3.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void ShowCredits1()
     {
         Credits1.SetActive(true);
