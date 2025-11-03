@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class gameController : MonoBehaviour
 {
-    public carController carC; // musí bejt public
+    public carController carC;
 
     public int score = 0;
 
@@ -27,7 +27,7 @@ public class gameController : MonoBehaviour
     void Update()
     {
         // Moc rychlá jízda byebye
-        if (carC.currentSpeed >= 25)
+        if (carC.currentSpeed >= 53)
         {
             Canvas_Fail.SetActive(true);
             score = 0;
