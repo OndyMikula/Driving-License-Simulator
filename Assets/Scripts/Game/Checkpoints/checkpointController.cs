@@ -15,18 +15,18 @@ public class checkpointController : MonoBehaviour
     {
         if (checkpointActive1 == true && checkpointActive2 == true)
         {
-            gameC.Canvas_Success.SetActive(true);
-            gameC.Canvas_Checkpoint.SetActive(false);
+            gameC.Canvas_Success.enabled = true;
+            gameC.Canvas_Checkpoint.enabled = false;
             gameC.successScoretxt.text = $"Počet skóre: {gameC.score}";
         }
         else if (checkpointActive1 == true)
         {
-            gameC.Canvas_Checkpoint.SetActive(true);
+            gameC.Canvas_Checkpoint.enabled = true;
             gameC.scoretxt.text = $"Počet skóre: {gameC.score}";
         }
         else if (checkpointActive1 == false && checkpointActive2 == true)
         {
-            gameC.Canvas_Success.SetActive(true);
+            gameC.Canvas_Success.enabled = true;
             gameC.successScoretxt.text = $"Počet skóre: {gameC.score}";
         }
     }

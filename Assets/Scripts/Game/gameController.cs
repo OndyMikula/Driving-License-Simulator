@@ -12,15 +12,16 @@ public class gameController : MonoBehaviour
     public TMP_Text scoretxt;
     public TMP_Text successScoretxt;
 
-    public GameObject Canvas_Fail;
-    public GameObject Canvas_Success;
-    public GameObject Canvas_Checkpoint; 
+    public Canvas Canvas_Fail;
+    public Canvas Canvas_Success;
+    public Canvas Canvas_Checkpoint;
+
     // Start is called before the first frame update
     void Start()
     {
-        Canvas_Checkpoint.SetActive(false);
-        Canvas_Fail.SetActive(false);
-        Canvas_Success.SetActive(false);
+        Canvas_Checkpoint.enabled = false;
+        Canvas_Fail.enabled = false;
+        Canvas_Success.enabled = false;
     }
 
     // Update is called once per frame

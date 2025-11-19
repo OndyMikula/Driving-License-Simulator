@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
@@ -48,13 +45,14 @@ public class carController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        bool Canvas_Fail = gameC.Canvas_Fail;
     }
 
     void Update()
     {
         currentSpeedTxt.text = "Current Speed: " + currentSpeed.ToString("F0");
-
-        if (gameC.Canvas_Fail.activeSelf)
+        bool Canvas_Fail = false;
+        if (Canvas_Fail == true)
         {
             currentSpeed = 0;
             maxSpeed = 0;
@@ -65,7 +63,7 @@ public class carController : MonoBehaviour
         {
             transform.position = new Vector3(32, (float)0.12, 37);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            gameC.Canvas_Fail.SetActive(true);
+            Canvas_Fail = true;
             currentSpeed = 0;
             maxSpeed = 0;
             currentSpeedTxt.text = "";

@@ -33,7 +33,7 @@ public class controllTrafficSignal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameC.Canvas_Fail.SetActive(true);
+            gameC.Canvas_Fail.enabled = true;
             /*// Změna na zelenou
             redLight.SetActive(false);
             yellowLight.SetActive(true);
