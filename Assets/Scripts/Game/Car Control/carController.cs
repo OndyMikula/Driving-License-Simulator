@@ -68,7 +68,6 @@ public class carController : MonoBehaviour
             maxSpeed = 0;
             currentSpeedTxt.text = "";
         }
-
     }
 
     void FixedUpdate()

@@ -5,10 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class BtnManager : MonoBehaviour
 {
-    public void PlayClick()
+    public void Play1Click()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level1");
     }
+    public void Play2Click()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+    public void Play3Click()
+    {
+        SceneManager.LoadScene("Level3");
+    }
+    public void Play4Click()
+    {
+        SceneManager.LoadScene("Level4");
+    }
+    public void Play5Click()
+    {
+        SceneManager.LoadScene("Level5");
+    }
+
     public void MenuClick()
     {
         SceneManager.LoadScene("Menu");
