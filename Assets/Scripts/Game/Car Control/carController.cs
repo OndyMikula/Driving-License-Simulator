@@ -45,14 +45,12 @@ public class carController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        bool Canvas_Fail = gameC.Canvas_Fail;
     }
 
     void Update()
     {
         currentSpeedTxt.text = "Current Speed: " + currentSpeed.ToString("F0");
-        bool Canvas_Fail = false;
-        if (Canvas_Fail == true)
+        if (gameC.Canvas_Fail.enabled)
         {
             currentSpeed = 0;
             maxSpeed = 0;
@@ -63,7 +61,7 @@ public class carController : MonoBehaviour
         {
             transform.position = new Vector3(32, (float)0.12, 37);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            Canvas_Fail = true;
+            gameC.Canvas_Fail.enabled = true;
             currentSpeed = 0;
             maxSpeed = 0;
             currentSpeedTxt.text = "";
