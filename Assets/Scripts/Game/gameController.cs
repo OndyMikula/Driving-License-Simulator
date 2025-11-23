@@ -6,11 +6,15 @@ using UnityEngine;
 public class gameController : MonoBehaviour
 {
     public carController carC;
+    public BtnManager btnManager;
+    public speedLimit speedL;
 
     public int score = 0;
 
     public TMP_Text scoretxt;
     public TMP_Text successScoretxt;
+    public TMP_Text Canvas_FailText;
+    public TMP_Text Canvas_SuccessText;
 
     public Canvas Canvas_Fail;
     public Canvas Canvas_Success;
@@ -27,11 +31,17 @@ public class gameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Moc rychlá jízda byebye
-        if (carC.currentSpeed >= 53)
+        if (score < 0)
         {
-            Canvas_Fail.SetActive(true);
-            score = 0;
+            Canvas_Fail.enabled = true;
+            Canvas_FailText.text = "Porušil jsi závažný p?e?in, za?ni znovu";
+        }
+        if (carC.currentSpeed >= speedL.SpeedLimit)
+        {
+            score -= 10;
+            Canvas_FailText.text = "Jel jsi moc rychle";
+            Canvas_Fail.enabled = true;
+            Debug.Log("Too Fast");
         }
     }
 }
