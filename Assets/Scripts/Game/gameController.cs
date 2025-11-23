@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -34,14 +34,13 @@ public class gameController : MonoBehaviour
         if (score < 0)
         {
             Canvas_Fail.enabled = true;
-            Canvas_FailText.text = "Poru�il jsi z�va�n� p?e?in, za?ni znovu";
+            Canvas_FailText.text = "Porušil jsi závažný přečin, začni znovu";
         }
         if (carC.currentSpeed >= speedL.SpeedLimit)
         {
             score -= 10;
             Canvas_FailText.text = "Jel jsi moc rychle";
             Canvas_Fail.enabled = true;
-            Debug.Log("Too Fast");
         }
     }
 }
