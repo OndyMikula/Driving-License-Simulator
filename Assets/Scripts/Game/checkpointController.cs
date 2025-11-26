@@ -10,13 +10,13 @@ public class checkpointController : MonoBehaviour
 
     public bool checkpointActive1 = false;
     public bool checkpointActive2 = false;
+    public bool finish = false;
 
     private void Update()
     {
         if (checkpointActive1 == true && checkpointActive2 == true)
         {
             gameC.Canvas_Success.enabled = true;
-            gameC.Canvas_Checkpoint.enabled = false;
             gameC.successScoretxt.text = $"Počet skóre: {gameC.score}";
         }
         else if (checkpointActive1 == true)
@@ -26,6 +26,7 @@ public class checkpointController : MonoBehaviour
         }
         else if (checkpointActive1 == false && checkpointActive2 == true)
         {
+            finish = true;
             gameC.Canvas_Success.enabled = true;
             gameC.successScoretxt.text = $"Počet skóre: {gameC.score}";
         }
