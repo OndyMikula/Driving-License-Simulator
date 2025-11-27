@@ -11,7 +11,7 @@ public class checkpointTrigger1 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            checkpointC.checkpointActive1 = true;
+            checkpointC.active1 = true;
             gameC.score += 10;
         }
     }

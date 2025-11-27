@@ -13,6 +13,6 @@ public class controll : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        gameC.Canvas_Fail.enabled = true;
+        gameC.Fail();
     }
 }

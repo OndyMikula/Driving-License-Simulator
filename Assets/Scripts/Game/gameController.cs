@@ -36,7 +36,7 @@ public class gameController : MonoBehaviour
     {
         if (score < 0)
         {
-            Canvas_Fail.enabled = true;
+            Fail();
             Canvas_FailText.text = "Porušil jsi závažný přečin, začni znovu! \n \n" +
                 $"Počet dodržených pravidel: {rulesSuccess}\n" +
                 $"Počet porušených pravidel: {rulesFail}\n" + 
@@ -45,16 +45,29 @@ public class gameController : MonoBehaviour
         }
         if (carC.currentSpeed >= speedL.SpeedLimit)
         {
-            score -= 1;
-            rulesFail += 1;
-            Canvas_FailText.text = $"Jel jsi moc rychle, začni znovu! \n \n" +
+            rulesFail++;
+            Fail();
+        }
+        if (checkpointC.finish)
+        {
+            Success();
+        }
+    }
+
+    public void Fail()
+    {
+        Canvas_Fail.enabled = true;
+        Canvas_FailText.text = "Porušil jsi závažný přečin, začni znovu! \n \n" +
                 $"Počet dodržených pravidel: {rulesSuccess}\n" +
                 $"Počet porušených pravidel: {rulesFail}\n" + 
                 $"Celkové skóre: {score}";
-            Canvas_SuccessText.fontSize = 15;
-            Canvas_Fail.enabled = true;
+        Canvas_FailText.fontSize = 24;
+        carC.currentSpeed = 0;
+        carC.maxSpeed = 0;
+        carC.currentSpeedTxt.text = "";
         }
-        if (checkpointC.finish)
+
+    public void Success()
         {
             Canvas_Success.enabled = true;
             Canvas_SuccessText.text = "Gratulujeme, dokončil jsi úroveň!\n \n" +
@@ -62,7 +75,10 @@ public class gameController : MonoBehaviour
                 $"Počet porušených pravidel: {rulesFail}\n" + 
                 $"Celkové skóre: {score}";
             Canvas_SuccessText.fontSize = 15;
-            successScoretxt.text = $"Počet skóre: {score}";
+        carC.currentSpeed = 0;
+        carC.maxSpeed = 0;
+        carC.currentSpeedTxt.text = "";
+    }
         }
     }
 }

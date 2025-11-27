@@ -21,6 +21,7 @@ public class carController : MonoBehaviour
     //           budes sbirat zdenda coiny
     //           bude schovanej giga obrazek zdendy co kdyz ho najdes tak te bude honit pres celou mapu a furt se ti bude smat a rikat KAPR S NIVOU
     //           po narazu do baraku bude prehranej zvuk BYEBYE
+    //           udelat achievementy sasku more (treba kdyz projedes checkpoint)
 
     // Start is called before the first frame update
     #region Variables
@@ -52,19 +53,14 @@ public class carController : MonoBehaviour
         currentSpeedTxt.text = "Current Speed: " + currentSpeed.ToString("F0");
         if (gameC.Canvas_Fail.enabled)
         {
-            currentSpeed = 0;
-            maxSpeed = 0;
-            currentSpeedTxt.text = "";
+            gameC.Fail();
         }
 
         if (transform.position.y < -20) //spadnul z mapy
         {
             transform.position = new Vector3(32, (float)0.12, 37);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            gameC.Canvas_Fail.enabled = true;
-            currentSpeed = 0;
-            maxSpeed = 0;
-            currentSpeedTxt.text = "";
+            gameC.Fail();
         }
     }
 
