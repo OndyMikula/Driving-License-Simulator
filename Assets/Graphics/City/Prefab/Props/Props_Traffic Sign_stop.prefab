@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 4762226238196431459}
+  - component: {fileID: 995074750376004226}
   m_Layer: 0
   m_Name: Props_Traffic Sign_stop
   m_TagString: Untagged
@@ -59,6 +60,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -107,3 +111,16 @@ CapsuleCollider:
   m_Height: 2.4326887
   m_Direction: 1
   m_Center: {x: 0.0034020133, y: 1.2163982, z: 0.0029807985}
+--- !u!114 &995074750376004226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3495f3fd60a8dfc42be88dc53e18be59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameC: {fileID: 0}
