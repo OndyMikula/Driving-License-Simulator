@@ -5,17 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class BtnManager : MonoBehaviour
 {
-    public void Play1Click()
+    public gameController gameC;
+    public carController carC;
+
+    public void LoadScene(string levelName)
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(levelName);
     }
-    public void Play2Click()
-    {
+
+    public void Resume()
         SceneManager.LoadScene("Level2");
     }
     public void Play3Click()
     {
         SceneManager.LoadScene("Level3");
+        carC.maxSpeed = 60;
     }
     public void Play4Click()
     {

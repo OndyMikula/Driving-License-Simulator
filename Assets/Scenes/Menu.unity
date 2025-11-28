@@ -662,6 +662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefe806161379f34d9cd4b108971e672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameC: {fileID: 0}
+  carC: {fileID: 0}
 --- !u!1 &1233252898
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,14 +821,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1135024731}
         m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
-        m_MethodName: PlayClick
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1374902988
@@ -1437,14 +1439,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1135024731}
         m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
-        m_MethodName: CreditsClick
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Credits
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2022800795
