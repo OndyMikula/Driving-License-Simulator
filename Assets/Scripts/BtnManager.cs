@@ -18,9 +18,10 @@ public class BtnManager : MonoBehaviour
     }
     public void Play3Click()
     {
-        SceneManager.LoadScene("Level3");
+        gameC.Canvas_Uncompleted.enabled = false;
+        gameC.Canvas_UncompletedText.text = "";
         carC.maxSpeed = 60;
-    }
+        carC.currentSpeed = 5;
     public void Play4Click()
     {
         SceneManager.LoadScene("Level4");

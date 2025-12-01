@@ -18,10 +18,12 @@ public class gameController : MonoBehaviour
     public TMP_Text successScoretxt;
     public TMP_Text Canvas_FailText;
     public TMP_Text Canvas_SuccessText;
+    public TMP_Text Canvas_UncompletedText;
 
     public Canvas Canvas_Fail;
     public Canvas Canvas_Success;
     public Canvas Canvas_Checkpoint;
+    public Canvas Canvas_Uncompleted;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +31,13 @@ public class gameController : MonoBehaviour
         Canvas_Checkpoint.enabled = false;
         Canvas_Fail.enabled = false;
         Canvas_Success.enabled = false;
+        Canvas_Uncompleted.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        scoretxt.text = "Skóre: " + score;
         if (score < 0)
         {
             Fail();
@@ -61,7 +65,7 @@ public class gameController : MonoBehaviour
                 $"Počet dodržených pravidel: {rulesSuccess}\n" +
                 $"Počet porušených pravidel: {rulesFail}\n" + 
                 $"Celkové skóre: {score}";
-        Canvas_FailText.fontSize = 24;
+        Canvas_FailText.fontSize = 20;
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
         carC.currentSpeedTxt.text = "";
@@ -79,6 +83,13 @@ public class gameController : MonoBehaviour
         carC.maxSpeed = 0;
         carC.currentSpeedTxt.text = "";
     }
-        }
+
+    public void Uncompleted()
+    {
+        Canvas_Uncompleted.enabled = true;
+        carC.currentSpeed = 0;
+        carC.maxSpeed = 0;
+        carC.currentSpeedTxt.text = "";
+        checkpointC.canvasActive = true;
     }
 }

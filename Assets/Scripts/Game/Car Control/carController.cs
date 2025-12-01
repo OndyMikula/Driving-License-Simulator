@@ -22,6 +22,7 @@ public class carController : MonoBehaviour
     //           bude schovanej giga obrazek zdendy co kdyz ho najdes tak te bude honit pres celou mapu a furt se ti bude smat a rikat KAPR S NIVOU
     //           po narazu do baraku bude prehranej zvuk BYEBYE
     //           udelat achievementy sasku more (treba kdyz projedes checkpoint)
+    //           MY CHCEME SVOBODU MY CHCEME HOSPODU
 
     // Start is called before the first frame update
     #region Variables
