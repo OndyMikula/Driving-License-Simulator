@@ -14,5 +14,7 @@ public class controll : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         gameC.Fail();
+        gameC.score -= 3;
+        gameC.rulesFail += 1;
     }
 }
