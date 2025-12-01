@@ -14,31 +14,13 @@ public class BtnManager : MonoBehaviour
     }
 
     public void Resume()
-        SceneManager.LoadScene("Level2");
-    }
-    public void Play3Click()
     {
         gameC.Canvas_Uncompleted.enabled = false;
         gameC.Canvas_UncompletedText.text = "";
         carC.maxSpeed = 60;
         carC.currentSpeed = 5;
-    public void Play4Click()
-    {
-        SceneManager.LoadScene("Level4");
-    }
-    public void Play5Click()
-    {
-        SceneManager.LoadScene("Level5");
     }
 
-    public void MenuClick()
-    {
-        SceneManager.LoadScene("Menu");
-    }
-    public void CreditsClick()
-    {
-        SceneManager.LoadScene("Credits");
-    }
     public void ExitClick()
     {
         Application.Quit();
