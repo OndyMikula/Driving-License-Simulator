@@ -37,13 +37,13 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 511064343}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  m_BakeOnSceneLoad: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -93,8 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: b3985606b2333ee419be16ff2ce57ba6, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 96830c9098d20cb4d8d3f6555d884a43, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: f04ea6cf79b54614389e1c744327b61d, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6960,6 +6960,7 @@ MonoBehaviour:
   active1: 0
   active2: 0
   finish: 0
+  canvasActive: 0
 --- !u!1 &234002004
 GameObject:
   m_ObjectHideFlags: 0
@@ -19407,10 +19408,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 672300593}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -19467,6 +19464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19948,10 +19949,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 30003977}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -20008,6 +20005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30805,10 +30806,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 676609451}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -30865,6 +30862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31339,10 +31340,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1990996889}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -31399,6 +31396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36693,10 +36694,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863585023}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -36753,6 +36750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40357,10 +40358,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863585023}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -40421,6 +40418,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -8.8
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43484,10 +43485,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 275927613}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -43564,6 +43561,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43948,6 +43949,7 @@ MonoBehaviour:
   rulesSuccess: 0
   rulesFail: 0
   scoretxt: {fileID: 1707211332}
+  statsText: {fileID: 0}
   Canvas_FailText: {fileID: 674474039}
   Canvas_SuccessText: {fileID: 736727550}
   Canvas_UncompletedText: {fileID: 1746827974}
@@ -49737,10 +49739,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863585023}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -49797,6 +49795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57671,7 +57673,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Menui
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1922395200
@@ -59398,10 +59400,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1348147560}
     m_Modifications:
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -59458,6 +59456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59692,7 +59694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2ffb9183a7dce445adfb3d2d4d7bfd6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.7303
+      value: -25.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2ffb9183a7dce445adfb3d2d4d7bfd6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -59700,7 +59702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2ffb9183a7dce445adfb3d2d4d7bfd6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 128.26048
+      value: 161.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2ffb9183a7dce445adfb3d2d4d7bfd6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -61650,14 +61652,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 393632697}
         m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
-        m_MethodName: MenuClick
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2103656305
