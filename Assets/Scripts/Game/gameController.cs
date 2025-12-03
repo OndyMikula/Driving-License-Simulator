@@ -68,7 +68,7 @@ public class gameController : MonoBehaviour
         Canvas_FailText.fontSize = 20;
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
-        carC.currentSpeedTxt.text = "";
+        carC.currentSpeedTxt.enabled = false;
         }
 
     public void Success()
@@ -81,7 +81,7 @@ public class gameController : MonoBehaviour
             Canvas_SuccessText.fontSize = 15;
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
-        carC.currentSpeedTxt.text = "";
+        carC.currentSpeedTxt.enabled = false;
     }
 
     public void Uncompleted()
@@ -89,7 +89,7 @@ public class gameController : MonoBehaviour
         Canvas_Uncompleted.enabled = true;
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
-        carC.currentSpeedTxt.text = "";
+        carC.currentSpeedTxt.enabled = false;
         checkpointC.canvasActive = true;
     }
 }
