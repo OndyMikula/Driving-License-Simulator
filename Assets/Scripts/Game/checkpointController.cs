@@ -10,12 +10,13 @@ public class checkpointController : MonoBehaviour
 
     public bool active1 = false;
     public bool active2 = false;
+    public bool check = false;
     public bool finish = false;
     public bool canvasActive = false;
 
     private void Update()
     {
-        if (active1 == true && active2 == true)
+        if (active1 == true && active2 == true && check == true)
         {
             finish = true;
         }
