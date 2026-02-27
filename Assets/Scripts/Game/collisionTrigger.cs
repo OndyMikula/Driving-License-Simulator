@@ -13,8 +13,11 @@ public class controll : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        gameC.Fail();
-        gameC.score -= 3;
-        gameC.rulesFail += 1;
+        if (other.CompareTag("Player"))
+        {
+            gameC.Fail();
+            Debug.Log("Collided with " + other.gameObject.name);
+        }
+            
     }
 }

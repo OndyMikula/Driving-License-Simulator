@@ -31,5 +31,18 @@ public class checkpointController : MonoBehaviour
             gameC.Uncompleted();
             gameC.Canvas_UncompletedText.text = "Minul jsi jeden z checkpointů. Vrať se a získej ho!";
         }
+
+        /*if (active2 == true)
+        {
+            if (active1 == false)
+            {
+                gameC.Canvas_UncompletedText.text = "Minul jsi jeden z checkpointů. Vrať se a získej ho!";
+                if (check == false)
+                {
+                    gameC.Uncompleted();
+                    gameC.Canvas_UncompletedText.text = "Neprojel jsi celou trasu. Vrať se a tentokrát zkus nepodvádět. :)";
+                }
+            }
+        }*/
     }
 }

@@ -62,6 +62,7 @@ public class carController : MonoBehaviour
             transform.position = new Vector3(32, (float)0.12, 37);
             transform.rotation = Quaternion.Euler(0, 0, 0);
             gameC.Fail();
+            gameC.Canvas_FailText.text = "Spadl jsi z mapy! Začni znovu!";
         }
     }
 
