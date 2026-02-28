@@ -22120,7 +22120,7 @@ GameObject:
   - component: {fileID: 456028637}
   - component: {fileID: 456028636}
   m_Layer: 5
-  m_Name: Canvas_SpeedLimit
+  m_Name: Canvas_BusStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22144,7 +22144,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.730027, y: -8.186157}
-  m_SizeDelta: {x: 928, y: 522}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456028636
 MonoBehaviour:
@@ -75654,7 +75654,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 121.76062, y: 47.116577}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1526076052
 MonoBehaviour:
@@ -87668,7 +87668,7 @@ GameObject:
   - component: {fileID: 1763054388}
   - component: {fileID: 1763054387}
   m_Layer: 5
-  m_Name: Canvas_SpeedLimit
+  m_Name: Canvas_BusStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87692,7 +87692,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.730027, y: -8.186157}
-  m_SizeDelta: {x: 928, y: 522}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763054387
 MonoBehaviour:
@@ -99829,7 +99829,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.5
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b5fe250d2a835714a819bbfd8d4192dd, type: 2}
   m_BuildHeightMesh: 0

@@ -6959,6 +6959,7 @@ MonoBehaviour:
   carC: {fileID: 1230274155}
   active1: 0
   active2: 0
+  check: 0
   finish: 0
   canvasActive: 0
 --- !u!1 &234002004
@@ -13355,7 +13356,7 @@ GameObject:
   - component: {fileID: 456028637}
   - component: {fileID: 456028636}
   m_Layer: 5
-  m_Name: Canvas_SpeedLimit
+  m_Name: Canvas_BusStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13379,7 +13380,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.730027, y: -8.186157}
-  m_SizeDelta: {x: 928, y: 522}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456028636
 MonoBehaviour:
@@ -19408,6 +19409,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 672300593}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -19464,10 +19469,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19949,6 +19950,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 30003977}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -20005,10 +20010,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30806,6 +30807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 676609451}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -30862,10 +30867,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31340,6 +31341,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1990996889}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -31396,10 +31401,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36694,6 +36695,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863585023}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -36750,10 +36755,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40358,6 +40359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863585023}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -40418,10 +40423,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -8.8
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43485,6 +43486,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 275927613}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -43561,10 +43566,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49739,6 +49740,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863585023}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -49795,10 +49800,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning (2)
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52281,7 +52282,7 @@ GameObject:
   - component: {fileID: 1763054388}
   - component: {fileID: 1763054387}
   m_Layer: 5
-  m_Name: Canvas_SpeedLimit
+  m_Name: Canvas_BusStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52305,7 +52306,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.730027, y: -8.186157}
-  m_SizeDelta: {x: 928, y: 522}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763054387
 MonoBehaviour:
@@ -54236,7 +54237,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 121.76062, y: 47.116577}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1815933630
 MonoBehaviour:
@@ -59400,6 +59401,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1348147560}
     m_Modifications:
+    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     - target: {fileID: -8679921383154817045, guid: f58089cfe9e9e024d85264126e1cee9b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -59456,10 +59461,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sipkaTurning
       objectReference: {fileID: 0}
-    - target: {fileID: -2837076635363177924, guid: 89a9507bb70577541ab9da518f250e07, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 47a543a33ac12194983d881c481a4640, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
