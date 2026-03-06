@@ -18,6 +18,7 @@ public class BtnManager : MonoBehaviour
         carC.maxSpeed = 60;
         carC.currentSpeed = 0;
         gameC.paused = false;
+        carC.currentSpeedTxt.enabled = true;
     }
 
     public void ExitClick()
