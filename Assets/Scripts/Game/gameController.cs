@@ -13,6 +13,7 @@ public class gameController : MonoBehaviour
     public int score = 12;
     public int rulesSuccess = 0;
     public int rulesFail = 0;
+    public bool paused = false;
 
     public TMP_Text scoretxt;
     public TMP_Text statsText;
@@ -81,6 +82,8 @@ public class gameController : MonoBehaviour
     public void Uncompleted()
     {
         Canvas_Uncompleted.enabled = true;
+        Canvas_UncompletedText.text = "Gratuluji, dosáhl jsi prvního checkpointu!\n" +
+                                        "Pokračuj dál v jízdě.";
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
         carC.currentSpeedTxt.enabled = false;

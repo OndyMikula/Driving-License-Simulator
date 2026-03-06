@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +16,8 @@ public class BtnManager : MonoBehaviour
         gameC.Canvas_Uncompleted.enabled = false;
         gameC.Canvas_UncompletedText.text = "";
         carC.maxSpeed = 60;
-        carC.currentSpeed = 5;
+        carC.currentSpeed = 0;
+        gameC.paused = false;
     }
 
     public void ExitClick()

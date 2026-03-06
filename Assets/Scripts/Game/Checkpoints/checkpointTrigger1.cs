@@ -11,7 +11,8 @@ public class checkpointTrigger1 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            checkpointC.active1 = true;
+            gameC.paused = true;
+            gameC.Uncompleted();
             gameC.score += 10;
         }
     }

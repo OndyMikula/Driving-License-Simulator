@@ -12,7 +12,6 @@ public class checkpointController : MonoBehaviour
     public bool active2 = false;
     public bool check = false;
     public bool finish = false;
-    public bool canvasActive = false;
 
     private void Update()
     {
@@ -20,13 +19,12 @@ public class checkpointController : MonoBehaviour
         {
             finish = true;
         }
-        else if (active1 == true && canvasActive == false)
+        else if (active1 == true && active2 == false)
         {
             gameC.Canvas_UncompletedText.text = "Získal jsi 1. checkpoint. Pokračuj v jízdě pomocí Resume";
             gameC.Uncompleted();
-            canvasActive = false;
         }
-        else if ((active1 == false && active2 == true) && canvasActive == false)
+        else if (active1 == false && active2 == true)
         {
             gameC.Uncompleted();
             gameC.Canvas_UncompletedText.text = "Minul jsi jeden z checkpointů. Vrať se a získej ho!";
