@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2187935293185991944}
   - component: {fileID: 6141906740399493515}
   - component: {fileID: 6332394556194659549}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2763826311411452757}
   - component: {fileID: 3740785316104526411}
   - component: {fileID: 1542124742629920722}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas_SpeedLimit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
