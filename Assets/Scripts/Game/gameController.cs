@@ -71,9 +71,9 @@ public class gameController : MonoBehaviour
     public void Success()
     {
         Canvas_Success.enabled = true;
-        Canvas_SuccessText.text = "Gratulujeme, dokončil jsi úroveň!";
+        Canvas_SuccessText.text = "Úrověň dokončena!";
         Stats();
-        Canvas_SuccessText.fontSize = 15;
+        Canvas_SuccessText.fontSize = 24;
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
         carC.currentSpeedTxt.enabled = false;
@@ -82,18 +82,16 @@ public class gameController : MonoBehaviour
     public void Uncompleted()
     {
         Canvas_Uncompleted.enabled = true;
-        Canvas_UncompletedText.text = "Gratuluji, dosáhl jsi prvního checkpointu!\n" +
-                                        "Pokračuj dál v jízdě.";
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
         carC.currentSpeedTxt.enabled = false;
-        checkpointC.canvasActive = true;
     }
 
     void Stats()
     {
         statsText.enabled = true;
-        statsText.text = $"Počet dodržených pravidel: {rulesSuccess}\n" +
+        statsText.text = 
+            $"Počet dodržených pravidel: {rulesSuccess}\n" +
             $"Počet porušených pravidel: {rulesFail}\n" +
             $"Celkové skóre: {score}";
     }
