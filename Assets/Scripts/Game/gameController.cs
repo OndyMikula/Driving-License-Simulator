@@ -38,6 +38,8 @@ public class gameController : MonoBehaviour
         Canvas_Stats.enabled = false;
 
         statsText.enabled = false;
+
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
