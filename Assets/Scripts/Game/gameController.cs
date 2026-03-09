@@ -26,6 +26,7 @@ public class gameController : MonoBehaviour
     public Canvas Canvas_Success;
     //public Canvas Canvas_Achievement;
     public Canvas Canvas_Uncompleted;
+    public Canvas Canvas_Stats;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class gameController : MonoBehaviour
         Canvas_Fail.enabled = false;
         Canvas_Success.enabled = false;
         Canvas_Uncompleted.enabled = false;
+        Canvas_Stats.enabled = false;
 
         statsText.enabled = false;
     }
@@ -59,24 +61,28 @@ public class gameController : MonoBehaviour
 
     public void Fail()
     {
+        if (paused) return; // Pokud je hra již pozastavena, nedělej nic
+        rulesFail++;
         Canvas_Fail.enabled = true;
         Canvas_FailText.text = "Porušil jsi závažný přečin, začni znovu!";
-        Stats();
-        Canvas_FailText.fontSize = 20;
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
         carC.currentSpeedTxt.enabled = false;
+        paused = true;
+        Stats();
+        Time.timeScale = 0f; // Zastaví čas, aby se hra "zastavila" a hráč mohl vidět výsledky
     }
 
     public void Success()
     {
         Canvas_Success.enabled = true;
         Canvas_SuccessText.text = "Úrověň dokončena!";
-        Stats();
-        Canvas_SuccessText.fontSize = 24;
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
         carC.currentSpeedTxt.enabled = false;
+        paused = true;
+        Stats();
+        Time.timeScale = 0f;
     }
     
     public void Uncompleted()
@@ -85,10 +91,13 @@ public class gameController : MonoBehaviour
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
         carC.currentSpeedTxt.enabled = false;
+        paused = true;
+        Time.timeScale = 0f;
     }
 
     void Stats()
     {
+        Canvas_Stats.enabled = true;
         statsText.enabled = true;
         statsText.text = 
             $"Počet dodržených pravidel: {rulesSuccess}\n" +

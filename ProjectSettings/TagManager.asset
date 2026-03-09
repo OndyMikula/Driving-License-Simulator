@@ -8,6 +8,9 @@ TagManager:
   - Checkpointy
   - DrivingLine
   - Canvas_Fail
+  - Pedestrian
+  - Building
+  - Prop
   layers:
   - Default
   - TransparentFX

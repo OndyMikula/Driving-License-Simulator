@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BtnManager : MonoBehaviour
@@ -19,6 +19,7 @@ public class BtnManager : MonoBehaviour
         carC.currentSpeed = 0;
         gameC.paused = false;
         carC.currentSpeedTxt.enabled = true;
+        Time.timeScale = 1f; // Obnoví normální čas
     }
 
     public void ExitClick()

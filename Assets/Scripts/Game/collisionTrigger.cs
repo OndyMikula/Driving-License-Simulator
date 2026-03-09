@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class controll : MonoBehaviour
 {
@@ -11,13 +9,34 @@ public class controll : MonoBehaviour
         gameC = FindAnyObjectByType<gameController>();  
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        string hitTag = collision.gameObject.tag;
+        string message = "";
+
+        switch (hitTag)
         {
-            gameC.Fail();
-            Debug.Log("Collided with " + other.gameObject.name);
+            case "Pedestrian":
+                message = "Narazil jsi do chodce a tím ohrozil jeho život!\nZačni znovu a tentokrát lépe :)";
+                break;
+
+            case "Car":
+                message = "Narazil jsi do auta a tím ohrozil život mnoha řidičů!\nZačni znovu a tentokrát lépe :)";
+                break;
+
+            case "Building":
+                message = "Narazil jsi do budovy!\nTakhle ten řidičák neuděláš, poškodil jsi majetek.\nZačni znovu a tentokrát lépe :)";
+                break;
+
+            case "Prop":
+                message = "Narazil jsi do věci, do které bys obvykle neměl narážet.\nZačni znovu a tentokrát lépe :)";
+                break;
+
+            default: return;
         }
-            
+
+        gameC.Canvas_FailText.text = message;
+        gameC.Fail();
+        Debug.Log("Collided with " + collision.gameObject.name + " (Tag: " + hitTag + ")");
     }
 }
