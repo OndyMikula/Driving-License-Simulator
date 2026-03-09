@@ -10,7 +10,6 @@ public class checkpointCheck : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             checkpointC.check = true;
-            gameC.score += 10;
         }
     }
 }

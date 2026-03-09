@@ -16,7 +16,6 @@ public class checkpointTrigger1 : MonoBehaviour
             gameC.Canvas_UncompletedText.text = "Gratuluji, dosáhl jsi prvního checkpointu!\n" +
                                                     "Pokračuj dál v jízdě.";
             gameC.Uncompleted();
-            gameC.score += 10;
         }
     }
 }
