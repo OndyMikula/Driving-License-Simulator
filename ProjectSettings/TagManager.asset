@@ -11,6 +11,8 @@ TagManager:
   - Pedestrian
   - Building
   - Prop
+  - RoadMain
+  - RoadSide
   layers:
   - Default
   - TransparentFX
