@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.AI;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
 
 public class AICarController : MonoBehaviour
 {
@@ -59,5 +60,22 @@ public class AICarController : MonoBehaviour
     public void SetTrafficStop(bool stop)
     {
         isStoppedByTraffic = stop;
+    }
+
+    // Tuhle metodu můžeš zavolat z triggeru křižovatky pro AI auta
+    public IEnumerator SmoothStopAI(NavMeshAgent agent)
+    {
+        float startSpeed = agent.speed;
+        float duration = 1.5f; // Jak dlouho má auto brzdit
+        float elapsed = 0;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            agent.speed = Mathf.Lerp(startSpeed, 0, elapsed / duration);
+            yield return null;
+        }
+        agent.speed = 0;
+        agent.isStopped = true; // NavMesh agent se úplně zastaví
     }
 }
