@@ -35,8 +35,8 @@ public class controll : MonoBehaviour
             default: return;
         }
 
-        gameC.Canvas_FailText.text = message;
         gameC.Fail();
+        gameC.Canvas_FailText.text = message;
         Debug.Log("Collided with " + collision.gameObject.name + " (Tag: " + hitTag + ")");
     }
 }
