@@ -74,18 +74,18 @@ public class carController : MonoBehaviour
         {
             currentSpeed += forwardInput * acceleration * 2.2f * Time.fixedDeltaTime;
         }
-        /*else if (currentSpeed > 4)  //priprava na razeni
+        /*else if (currentSpeed > 4)  //Příprava na řazení
         {
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
         }*/
 
 
-        else if (!isBraking)
+        else if (!isBraking) //Přirozené zpomalování
         {
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
         }
 
-        if (isBraking)
+        if (isBraking) //Brzdění
         {
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0, brakePower * Time.fixedDeltaTime);
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class gameController : MonoBehaviour
     public speedLimit speedL;
     public checkpointController checkpointC;
 
-    public int score = 12;
+    public int score;
     public int rulesSuccess = 0;
     public int rulesFail = 0;
     public bool paused = false;
@@ -22,6 +23,7 @@ public class gameController : MonoBehaviour
     public TMP_Text Canvas_UncompletedText;
     //public TMP_Text Canvas_AchievementText;
 
+    public Canvas Canvas_CurrentSpeed;
     public Canvas Canvas_Fail;
     public Canvas Canvas_Success;
     //public Canvas Canvas_Achievement;
@@ -31,6 +33,7 @@ public class gameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Canvas_CurrentSpeed.enabled = true;
         //Canvas_Achievement.enabled = false;
         Canvas_Fail.enabled = false;
         Canvas_Success.enabled = false;
@@ -40,6 +43,7 @@ public class gameController : MonoBehaviour
         statsText.enabled = false;
 
         Time.timeScale = 1f;
+        score = 12; //jinak hlasi score = 0 ggs
     }
 
     // Update is called once per frame
@@ -53,11 +57,9 @@ public class gameController : MonoBehaviour
         if (carC.currentSpeed >= speedL.SpeedLimit)
         {
             rulesFail++;
-            Fail();
-        }
-        if (checkpointC.finish)
-        {
-            Success();
+            Uncompleted();
+            Canvas_UncompletedText.text = "Překročil jsi povolenou rychlost!\nMáš -1 bod\nDej si na to pozor.";
+            score -= 1;
         }
     }
 
@@ -69,10 +71,11 @@ public class gameController : MonoBehaviour
         Canvas_FailText.text = "Porušil jsi závažný přečin, začni znovu!";
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
-        carC.currentSpeedTxt.enabled = false;
+        Canvas_CurrentSpeed.enabled = false;
+        scoretxt.enabled = false;
         paused = true;
         Stats();
-        Time.timeScale = 0f; // Zastaví čas, aby se hra "zastavila" a hráč mohl vidět výsledky
+        Time.timeScale = 0f; // Zastaví čas
     }
 
     public void Success()
@@ -81,7 +84,8 @@ public class gameController : MonoBehaviour
         Canvas_SuccessText.text = "Úrověň dokončena!";
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
-        carC.currentSpeedTxt.enabled = false;
+        Canvas_CurrentSpeed.enabled = false;
+        scoretxt.enabled = false;
         paused = true;
         Stats();
         Time.timeScale = 0f;
@@ -92,7 +96,7 @@ public class gameController : MonoBehaviour
         Canvas_Uncompleted.enabled = true;
         carC.currentSpeed = 0;
         carC.maxSpeed = 0;
-        carC.currentSpeedTxt.enabled = false;
+        Canvas_CurrentSpeed.enabled = false;
         paused = true;
         Time.timeScale = 0f;
     }

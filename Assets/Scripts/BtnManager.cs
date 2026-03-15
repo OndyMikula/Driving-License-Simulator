@@ -18,7 +18,7 @@ public class BtnManager : MonoBehaviour
         carC.maxSpeed = 60;
         carC.currentSpeed = 0;
         gameC.paused = false;
-        carC.currentSpeedTxt.enabled = true;
+        gameC.Canvas_CurrentSpeed.enabled = true;
         Time.timeScale = 1f; // Obnoví normální čas
     }
 
