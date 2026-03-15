@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5481669548617104345}
   - component: {fileID: 2871827744226301867}
   - component: {fileID: 3794832398544987062}
+  - component: {fileID: -2584851674979681254}
+  - component: {fileID: -8323628851920051729}
   m_Layer: 0
   m_Name: normal woman c
   m_TagString: Pedestrian
@@ -99,6 +101,42 @@ MonoBehaviour:
   loop: 1
   stopDistance: 3
   maxSpeed: 10
+--- !u!136 &-2584851674979681254
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481669548617104346}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.0424035
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.87207735, z: 0}
+--- !u!114 &-8323628851920051729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481669548617104346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3495f3fd60a8dfc42be88dc53e18be59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameC: {fileID: 0}
 --- !u!1001 &5481669548902992030
 PrefabInstance:
   m_ObjectHideFlags: 0
