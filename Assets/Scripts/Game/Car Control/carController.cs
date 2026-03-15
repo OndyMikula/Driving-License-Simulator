@@ -17,7 +17,7 @@ public class carController : MonoBehaviour
     //           na klavesu budes mit italskej brainrot nahodnej
     //           na klavesu budes mit nahodny hlasky zdendy
     //           na klavesu se objevi ptacek co bude nad tebou poletovat a bude rvat "Dobrý DEN"
-    //           pri prujezdu okolo chodcu budes moct (treba na klavesu) rict Dobrý DEN a oni odpovi Ty čůráku deblní vole 
+    //           pri prujezdu okolo chodcu budes moct (treba na klavesu) rict Dobrý DEN a oni odpovi
     //           budes sbirat zdenda coiny
     //           bude schovanej giga obrazek zdendy co kdyz ho najdes tak te bude honit pres celou mapu a furt se ti bude smat a rikat KAPR S NIVOU
     //           po narazu do baraku bude prehranej zvuk BYEBYE

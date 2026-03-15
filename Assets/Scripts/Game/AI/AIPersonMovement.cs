@@ -21,16 +21,17 @@ public class AIMovementPerson : MonoBehaviour
 
         if (route.Count > 0)
         {
-            agent.SetDestination(route[currentPointIndex].position);
+            agent.SetDestination(route[currentPointIndex].position); //Nastavení bodů pro chodce
+                                                                     //a kalkulace nejkratší trasy
         }
     }
 
     void Update()
     {
-        if (route.Count == 0) return;
+        if (route.Count == 0) 
+            return;
 
-        // Kontrola dojezdu k bodu
-        if (!agent.pathPending && agent.remainingDistance < stopDistance)
+        if (!agent.pathPending && agent.remainingDistance < stopDistance) //Kontrola příchodu k bodu
         {
             MoveToNextPoint();
         }
@@ -40,13 +41,13 @@ public class AIMovementPerson : MonoBehaviour
     {
         currentPointIndex++;
 
-        if (currentPointIndex >= route.Count)
+        if (currentPointIndex >= route.Count) //Kontrola příchodu k poslednímu bodu
         {
             if (loop == true)
-                currentPointIndex = 0;
+                currentPointIndex = 0; // Pokud je nastaven loop, začne znovu od prvního bodu
             else return;
         }
 
-        agent.SetDestination(route[currentPointIndex].position);
+        agent.SetDestination(route[currentPointIndex].position); //nastavení dalšího bodu pro chodce
     }
 }

@@ -36,11 +36,15 @@ public class collisionTrigger : MonoBehaviour
                     break;
 
                 case "Building":
-                    message = "Narazil jsi do budovy!\nTakhle ten řidičák neuděláš, poškodil jsi majetek.\nZačni znovu a tentokrát lépe :)";
+                    message = "Narazil jsi do budovy a poškodil jsi majetek.\nZačni znovu a tentokrát lépe :)";
                     break;
 
                 case "Prop":
                     message = "Narazil jsi do věci, do které bys obvykle neměl narážet.\nZačni znovu a tentokrát lépe :)";
+                    break;
+
+                case "NatureGround":
+                    message = "Zkracovat si cestu se nevyplácí.\nZačni znovu a tentokrát nepodváděj :)";
                     break;
 
                 default: return;
