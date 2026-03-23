@@ -1,22 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BtnManager : MonoBehaviour
 {
-    public void PlayClick()
+    public gameController gameC;
+    public carController carC;
+
+    public void LoadScene(string levelName)
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(levelName);
     }
-    public void MenuClick()
+
+    public void Resume()
     {
-        SceneManager.LoadScene("Menu");
+        gameC.Canvas_Uncompleted.enabled = false;
+        gameC.Canvas_UncompletedText.text = "";
+        carC.maxSpeed = 60;
+        carC.currentSpeed = 0;
+        gameC.paused = false;
+        gameC.Canvas_CurrentSpeed.enabled = true;
+        Time.timeScale = 1f; // Obnoví normální čas
     }
-    public void CreditsClick()
-    {
-        SceneManager.LoadScene("Credits");
-    }
+
     public void ExitClick()
     {
         Application.Quit();

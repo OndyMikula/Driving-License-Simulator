@@ -1,36 +1,119 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 
 public class gameController : MonoBehaviour
 {
-    public carController carC; // mus� bejt public
+    public carController carC;
+    public BtnManager btnManager;
+    public speedLimit speedL;
+    public checkpointController checkpointC;
 
-    public int score = 0;
+    public int score;
+    public int rulesSuccess = 0;
+    public int rulesFail = 0;
+    public bool paused = false;
 
     public TMP_Text scoretxt;
-    public TMP_Text successScoretxt;
+    public TMP_Text statsText;
+    public TMP_Text Canvas_FailText;
+    public TMP_Text Canvas_SuccessText;
+    public TMP_Text Canvas_UncompletedText;
+    //public TMP_Text Canvas_AchievementText;
 
-    public GameObject Canvas_Fail;
-    public GameObject Canvas_Success;
-    public GameObject Canvas_Checkpoint; 
+    public Canvas Canvas_CurrentSpeed;
+    public Canvas Canvas_Fail;
+    public Canvas Canvas_Success;
+    //public Canvas Canvas_Achievement;
+    public Canvas Canvas_Uncompleted;
+    public Canvas Canvas_Stats;
+
     // Start is called before the first frame update
     void Start()
     {
-        Canvas_Checkpoint.SetActive(false);
-        Canvas_Fail.SetActive(false);
-        Canvas_Success.SetActive(false);
+        Canvas_CurrentSpeed.enabled = true;
+        //Canvas_Achievement.enabled = false;
+        Canvas_Fail.enabled = false;
+        Canvas_Success.enabled = false;
+        Canvas_Uncompleted.enabled = false;
+        Canvas_Stats.enabled = false;
+
+        statsText.enabled = false;
+
+        Time.timeScale = 1f;
+        score = 12; //jinak hlasi score = 0 ggs
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Moc rychl� j�zda byebye
-        if (carC.currentSpeed >= 25)
+        scoretxt.text = "Skóre: " + score;
+        if (score < 0)
         {
-            Canvas_Fail.SetActive(true);
-            score = 0;
+            Fail();
+        }
+        if (carC.currentSpeed >= speedL.SpeedLimit)
+        {
+            rulesFail++;
+            Uncompleted();
+            Canvas_UncompletedText.text = "Překročil jsi povolenou rychlost!\nMáš -1 bod\nDej si na to pozor.";
+            score -= 1;
         }
     }
+
+    public void Fail()
+    {
+        if (paused) return; // Pokud je hra již pozastavena, nedělej nic
+        rulesFail++;
+        Canvas_Fail.enabled = true;
+        Canvas_FailText.text = "Porušil jsi závažný přečin, začni znovu!";
+        carC.currentSpeed = 0;
+        carC.maxSpeed = 0;
+        Canvas_CurrentSpeed.enabled = false;
+        scoretxt.enabled = false;
+        paused = true;
+        Stats();
+        Time.timeScale = 0f; // Zastaví čas
+    }
+
+    public void Success()
+    {
+        Canvas_Success.enabled = true;
+        Canvas_SuccessText.text = "Úrověň dokončena!";
+        carC.currentSpeed = 0;
+        carC.maxSpeed = 0;
+        Canvas_CurrentSpeed.enabled = false;
+        scoretxt.enabled = false;
+        paused = true;
+        Stats();
+        Time.timeScale = 0f;
+    }
+    
+    public void Uncompleted()
+    {
+        Canvas_Uncompleted.enabled = true;
+        carC.currentSpeed = 0;
+        carC.maxSpeed = 0;
+        Canvas_CurrentSpeed.enabled = false;
+        paused = true;
+        Time.timeScale = 0f;
+    }
+
+    void Stats()
+    {
+        Canvas_Stats.enabled = true;
+        statsText.enabled = true;
+        statsText.text = 
+            $"Počet dodržených pravidel: {rulesSuccess}\n" +
+            $"Počet porušených pravidel: {rulesFail}\n" +
+            $"Celkové skóre: {score}";
+    }
+
+    /*public void Achievement() //potreba udelat timer na zobrazeni
+    {
+        Canvas_Achievement.enabled = true;
+        Canvas_AchievementText.fontSize = 24;
+    }*/
 }

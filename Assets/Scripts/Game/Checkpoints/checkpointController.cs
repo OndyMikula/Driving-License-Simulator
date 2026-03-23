@@ -8,26 +8,37 @@ public class checkpointController : MonoBehaviour
     public gameController gameC; // musí bejt public
     public carController carC; // musí bejt public
 
-    public bool checkpointActive1 = false;
-    public bool checkpointActive2 = false;
+    //public string checkpointName;
+
+    public bool active1 = false;
+    public bool active2 = false;
+    public bool check = false;
+    public bool finish = false;
 
     private void Update()
     {
-        if (checkpointActive1 == true && checkpointActive2 == true)
+        if (active1 == true && active2 == true && check == true)
         {
-            gameC.Canvas_Success.SetActive(true);
-            gameC.Canvas_Checkpoint.SetActive(false);
-            gameC.successScoretxt.text = $"Počet skóre: {gameC.score}";
+            finish = true;
+            gameC.Success();
         }
-        else if (checkpointActive1 == true)
+        else if (active1 == false && active2 == true)
         {
-            gameC.Canvas_Checkpoint.SetActive(true);
-            gameC.scoretxt.text = $"Počet skóre: {gameC.score}";
+            gameC.Uncompleted();
+            gameC.Canvas_UncompletedText.text = "Minul jsi jeden z checkpointů. Vrať se a získej ho!";
         }
-        else if (checkpointActive1 == false && checkpointActive2 == true)
+
+        /*if (active2 == true)
         {
-            gameC.Canvas_Success.SetActive(true);
-            gameC.successScoretxt.text = $"Počet skóre: {gameC.score}";
-        }
+            if (active1 == false)
+            {
+                gameC.Canvas_UncompletedText.text = "Minul jsi jeden z checkpointů. Vrať se a získej ho!";
+                if (check == false)
+                {
+                    gameC.Uncompleted();
+                    gameC.Canvas_UncompletedText.text = "Neprojel jsi celou trasu. Vrať se a tentokrát zkus nepodvádět. :)";
+                }
+            }
+        }*/
     }
 }

@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4861003059504863180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1261565171775499068, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_Name
+      value: Rails
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 141.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -63.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 213.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857088005759791642, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525257496432683168, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_Name
+      value: Rails Only
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188318626874932743, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 8580334250858436602, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+    - {fileID: 490475735841126368, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4525257496432683168, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1797710739826889509}
+  m_SourcePrefab: {fileID: 100100000, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+--- !u!1 &9059326210845507436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4525257496432683168, guid: 43fe1a7b69bc57947836b34962f9fc60, type: 3}
+  m_PrefabInstance: {fileID: 4861003059504863180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1797710739826889509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9059326210845507436}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 19.401299, y: 0.332592, z: 5.1231523}
+  m_Center: {x: 0.5664444, y: -0.13980293, z: 11.063868}

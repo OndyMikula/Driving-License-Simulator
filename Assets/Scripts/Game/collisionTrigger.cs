@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class controll : MonoBehaviour
+public class collisionTrigger : MonoBehaviour
 {
-    public gameController gameC; // mus� bejt public
+    public gameController gameC;
 
     void Start()
     {
@@ -13,6 +11,49 @@ public class controll : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        gameC.Canvas_Fail.SetActive(true);
+        string hitTag = collision.gameObject.tag;
+        string message = "";
+
+        if (hitTag == "DrivingLine")
+        {
+            gameC.Uncompleted();
+            gameC.Canvas_UncompletedText.text = "Vjel jsi do protisměru!\nMáš -1 bod";
+            Debug.Log("Collided with " + collision.gameObject.name + " (Tag: DrivingLine)");
+            gameC.score -= 1;
+            gameC.rulesFail++;
+        }
+
+        if (gameObject.CompareTag("Player"))
+        {
+            switch (hitTag)
+            {
+                case "Pedestrian":
+                    message = "Narazil jsi do chodce a tím ohrozil jeho život!\nZačni znovu a tentokrát lépe :)";
+                    break;
+
+                case "Car":
+                    message = "Narazil jsi do auta a tím ohrozil život mnoha řidičů!\nZačni znovu a tentokrát lépe :)";
+                    break;
+
+                case "Building":
+                    message = "Narazil jsi do budovy a poškodil jsi majetek.\nZačni znovu a tentokrát lépe :)";
+                    break;
+
+                case "Prop":
+                    message = "Narazil jsi do věci, do které bys obvykle neměl narážet.\nZačni znovu a tentokrát lépe :)";
+                    break;
+
+                case "NatureGround":
+                    message = "Zkracovat si cestu se nevyplácí.\nZačni znovu a tentokrát nepodváděj :)";
+                    break;
+
+                default: return;
+            }
+
+            gameC.score = 0;
+            gameC.Fail();
+            gameC.Canvas_FailText.text = message;
+            Debug.Log("Collided with " + collision.gameObject.name + " (Tag: " + hitTag + ")");
+        }
     }
 }

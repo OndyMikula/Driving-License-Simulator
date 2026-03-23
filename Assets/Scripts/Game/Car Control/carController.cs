@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
@@ -20,28 +17,27 @@ public class carController : MonoBehaviour
     //           na klavesu budes mit italskej brainrot nahodnej
     //           na klavesu budes mit nahodny hlasky zdendy
     //           na klavesu se objevi ptacek co bude nad tebou poletovat a bude rvat "Dobrý DEN"
-    //           pri prujezdu okolo chodcu budes moct (treba na klavesu) rict Dobrý DEN a oni odpovi Ty čůráku deblní vole 
+    //           pri prujezdu okolo chodcu budes moct (treba na klavesu) rict Dobrý DEN a oni odpovi
     //           budes sbirat zdenda coiny
     //           bude schovanej giga obrazek zdendy co kdyz ho najdes tak te bude honit pres celou mapu a furt se ti bude smat a rikat KAPR S NIVOU
     //           po narazu do baraku bude prehranej zvuk BYEBYE
+    //           udelat achievementy sasku more (treba kdyz projedes checkpoint)
+    //           MY CHCEME SVOBODU MY CHCEME HOSPODU
 
     // Start is called before the first frame update
     #region Variables
-    public gameController gameC; //musi bejt public
+    public gameController gameC;
 
-    public float acceleration = 2;
-    public float deceleration = 3;
-    public float maxSpeed = 30;
-    public float turnSpeed = 100;
-    public float brakePower = 10;
-    public float currentSpeed = 0;
+    public float acceleration;
+    public float deceleration;
+    public float maxSpeed;
+    public float turnSpeed;
+    public float brakePower;
+    public float currentSpeed;
 
     float forwardInput = 0;
     float steerInput = 0;
     bool isBraking = false;
-
-    public GameObject player;
-    [SerializeField] GameObject[] DrivingLine;
 
     public TMP_Text currentSpeedTxt;
 
@@ -50,45 +46,67 @@ public class carController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
-
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        CarMove();
-
-        // Moc rychlá jízda byebye
-        if (currentSpeed >= 25)
-        {
-            gameC.Canvas_Fail.SetActive(true);
-        }
-
         currentSpeedTxt.text = "Current Speed: " + currentSpeed.ToString("F0");
-
-        if (gameC.Canvas_Fail.activeSelf)
+        if (gameC.Canvas_Fail.enabled)
         {
-            currentSpeed = 0;
-            maxSpeed = 0;
-            currentSpeedTxt.text = "";
+            gameC.Fail();
         }
 
-        if (transform.position.y < -20)
+        if (transform.position.y < -20) //spadnul z mapy
         {
             transform.position = new Vector3(32, (float)0.12, 37);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            gameC.Canvas_Fail.SetActive(true);
-            currentSpeed = 0;
-            maxSpeed = 0;
-            currentSpeedTxt.text = "";
+            gameC.Fail();
+            gameC.Canvas_FailText.text = "Spadl jsi z mapy! Začni znovu!";
         }
-
     }
 
     void FixedUpdate()
     {
-        //CarMove();
+        #region CarMovement
+        // Zrychleni
+        if (forwardInput != 0)
+        {
+            currentSpeed += forwardInput * acceleration * 2.2f * Time.fixedDeltaTime;
+        }
+        /*else if (currentSpeed > 4)  //Příprava na řazení
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
+        }*/
+
+
+        else if (!isBraking) //Přirozené zpomalování
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
+        }
+
+        if (isBraking) //Brzdění
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, brakePower * Time.fixedDeltaTime);
+        }
+
+        currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
+
+        // Fyzikální pohyb a rotace
+        Vector3 move = transform.forward * (currentSpeed * 0.3f) * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + move);
+
+        if (currentSpeed > 0.5f) //zataceni
+        {
+            Quaternion deltaRot = Quaternion.Euler(Vector3.up * steerInput * turnSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaRot);
+        }
+        else if (currentSpeed < -0.5f) //couvani pri couvani
+        {
+            Quaternion deltaRot = Quaternion.Euler(Vector3.up * -steerInput * turnSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaRot);
+        }
+        #endregion
     }
     #region InputSystem
     public void OnForward(InputAction.CallbackContext context)
@@ -117,44 +135,4 @@ public class carController : MonoBehaviour
         isBraking = context.ReadValueAsButton();
     }
     #endregion
-    public void CarMove()
-    {
-        // Zrychleni
-        if (forwardInput != 0)
-        {
-            currentSpeed += forwardInput * acceleration * 0.2f * Time.fixedDeltaTime;
-        }
-        /*else if (currentSpeed > 4)  //priprava na razeni
-        {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
-        }*/
-
-
-        else if (!isBraking)
-        {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
-        }
-
-        if (isBraking)
-        {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, brakePower * Time.fixedDeltaTime);
-        }
-
-        currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
-
-        // Fyzikální pohyb a rotace
-        Vector3 move = transform.forward * (currentSpeed * 0.3f) * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + move);
-
-        if (currentSpeed > 0.5f)
-        {
-            Quaternion deltaRot = Quaternion.Euler(Vector3.up * steerInput * turnSpeed * Time.fixedDeltaTime);
-            rb.MoveRotation(rb.rotation * deltaRot);
-        }
-        else if (currentSpeed < -0.5f)
-        {
-            Quaternion deltaRot = Quaternion.Euler(Vector3.up * -steerInput * turnSpeed * Time.fixedDeltaTime);
-            rb.MoveRotation(rb.rotation * deltaRot);
-        }
-    }
 }
